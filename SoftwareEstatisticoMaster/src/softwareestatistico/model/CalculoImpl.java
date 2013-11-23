@@ -24,6 +24,9 @@ public class CalculoImpl implements Calculo{
     private Map<Double,Integer> frequencia=new TreeMap<>();
     private Map<String,Integer> frequencia_String=new TreeMap<>();
     private double variancia;
+    private double q1;
+    private double q2;
+    private double q3;
     private double desvio_padrao;
     private double amplitude;
     private double coeficiente_variacao;
@@ -206,5 +209,36 @@ public class CalculoImpl implements Calculo{
         }
         return fr_relativa;
     }
-    
+    public double q2() {
+        int x=0;
+        if(amostra.size()%2==0){
+           x=amostra.size()/2;
+           q2=(amostra.get(x)+amostra.get(x-1))/2;
+        }else{
+            q2=amostra.get(x);
+        }
+        return q2;
+    }
+
+    public double q1() {
+        //mediana superior
+        List s=new ArrayList();
+        for(int i=0;i<amostra.size()/2;i++){
+            s.add(amostra.get(i));
+        }
+        int posicao=s.size()/2;
+        q1= (double) s.get(posicao);
+        return q1;
+    }
+
+    public double q3() {
+        //mediana inferior
+         List i=new ArrayList();
+        for(int s=amostra.size()/2;s<amostra.size();s++){
+            i.add(amostra.get(s));
+        }
+        int posicao=i.size()/2;
+        q3= (double) i.get(posicao);
+        return q3;
+    }
 }
