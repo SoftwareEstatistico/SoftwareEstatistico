@@ -9,6 +9,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import softwareestatistico.controller.IndexController;
 
 /**
  *
@@ -18,8 +19,10 @@ public class SoftwareEstatistico extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("Index.fxml"));
+        IndexController controller = (IndexController)loader.getController();
+        controller.setStageAndSetupListeners(stage);
         Parent root = FXMLLoader.load(getClass().getResource("Index.fxml"));
-        
         Scene scene = new Scene(root);
         
         stage.setScene(scene);

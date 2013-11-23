@@ -56,13 +56,13 @@ public class IndexController implements Initializable {
     @FXML
     private Text resultText;
     
+    private Stage stage;
     
     @FXML
     private void handleAbrirExcelAction(ActionEvent event) {
         FileChooser filechoose=new FileChooser();
         filechoose.setTitle("Abrir Amostra excel");
-        Stage stage=(Stage) event.getSource();
-        filechoose.showOpenDialog(stage);
+        filechoose.showOpenDialog(this.stage);
         Calculo c=new CalculoImpl();
         //ler arquivo excel e transformar em lista
         //passar a lista para o calculo
@@ -73,4 +73,8 @@ public class IndexController implements Initializable {
        // DOMConfigurator.configure("./src/indexcontroller.xml");
 //        slf4j.info("Initializing IndexController");
     }    
+
+    public void setStageAndSetupListeners(Stage stage) {
+        this.stage=stage;
+    }
 }
