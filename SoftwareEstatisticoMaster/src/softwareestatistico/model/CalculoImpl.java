@@ -22,14 +22,30 @@ public class CalculoImpl implements Calculo{
     private double media;
     private double mediana;
     private Map<Double,Integer> frequencia=new TreeMap<>();
-    private double q1;
-    private double q2;
-    private double q3;
+    private Map<String,Integer> frequencia_String=new TreeMap<>();
     private double variancia;
     private double desvio_padrao;
     private double amplitude;
     private double coeficiente_variacao;
     private List<Double> amostra;
+    private List<String> amostra_String;
+     @Override
+    public Map<Double, Integer> getFrequencia_Absoluta() {
+        return frequencia;
+    }
+     @Override
+    public Map<String, Integer> getFrequencia_String_Absoluta() {
+        return frequencia_String;
+    }
+    @Override
+    public List<String> getAmostra_String() {
+        return amostra_String;
+    }
+     @Override
+    public void setAmostra_String(List<String> amostra_String) {
+        this.amostra_String = amostra_String;
+    }
+    
     @Override
     public List<Double> getAmostra() {
         return amostra;
@@ -39,6 +55,7 @@ public class CalculoImpl implements Calculo{
     public void setAmostra(List<Double> amostra) {
         this.amostra = ordenarAmostra(amostra);
     }
+
     //ordena a lista
     private List ordenarAmostra(List<Double> amostra){
          Collections.sort (amostra, new Comparator() {  
@@ -88,42 +105,6 @@ public class CalculoImpl implements Calculo{
     }
 
     @Override
-    public double q2() {
-        int x=0;
-        if(amostra.size()%2==0){
-           x=amostra.size()/2;
-           q2=(amostra.get(x)+amostra.get(x-1))/2;
-        }else{
-            q2=amostra.get(x);
-        }
-        return q2;
-    }
-
-    @Override
-    public double q1() {
-        //mediana superior
-        List s=new ArrayList();
-        for(int i=0;i<amostra.size()/2;i++){
-            s.add(amostra.get(i));
-        }
-        int posicao=s.size()/2;
-        q1= (double) s.get(posicao);
-        return q1;
-    }
-
-    @Override
-    public double q3() {
-        //mediana inferior
-         List i=new ArrayList();
-        for(int s=amostra.size()/2;s<amostra.size();s++){
-            i.add(amostra.get(s));
-        }
-        int posicao=i.size()/2;
-        q3= (double) i.get(posicao);
-        return q3;
-    }
-
-    @Override
     public double variancia() {//ok
         variancia=Math.pow(soma(),2)/amostra.size();
         return variancia;
@@ -141,6 +122,14 @@ public class CalculoImpl implements Calculo{
             if(count==null)
                 count=0;
             frequencia.put(dado, count+1);
+        }
+    }
+    private void frequencia_String() {//ok
+        for(String dado:amostra_String){
+            Integer count=frequencia.get(dado);
+            if(count==null)
+                count=0;
+            frequencia_String.put(dado, count+1);
         }
     }
 
@@ -165,6 +154,57 @@ public class CalculoImpl implements Calculo{
             return false;
         }
         
+    }
+    //amostra esta em ordem crescente
+    //por tanto primeiro elemento é o menor
+    //ultmimo é o maior
+    @Override
+    public double max() {
+        return amostra.get(amostra.size()-1);
+    }
+
+    @Override
+    public double min() {
+       return amostra.get(0); 
+    }
+
+    @Override
+    public double histograma() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public double curtose() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public double obliquidade() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Map<Double, Integer> frequencia_relativa() {
+        Map<Double,Integer> fr_relativa=new TreeMap<>();
+         for(Double dado:amostra){
+            Integer count=frequencia.get(dado);
+            if(count==null)
+                count=0;
+            fr_relativa.put(dado, count+1/amostra.size());
+        }
+        return fr_relativa;
+    }
+
+    @Override
+    public Map<String, Integer> frequencia_String_relativa() {
+         Map<String,Integer> fr_relativa=new TreeMap<>();
+         for(String dado:amostra_String){
+            Integer count=frequencia.get(dado);
+            if(count==null)
+                count=0;
+            fr_relativa.put(dado, count+1/amostra.size());
+        }
+        return fr_relativa;
     }
     
 }
