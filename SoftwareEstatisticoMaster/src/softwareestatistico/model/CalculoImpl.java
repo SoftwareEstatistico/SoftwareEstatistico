@@ -24,9 +24,6 @@ public class CalculoImpl implements Calculo{
     private Map<Double,Integer> frequencia=new TreeMap<>();
     private Map<String,Integer> frequencia_String=new TreeMap<>();
     private double variancia;
-    private double q1;
-    private double q2;
-    private double q3;
     private double desvio_padrao;
     private double amplitude;
     private double coeficiente_variacao;
@@ -73,13 +70,13 @@ public class CalculoImpl implements Calculo{
     @Override
     public double media() {//ok
         double soma=soma();
-        media= soma/amostra.size();
+        media= soma/getAmostra().size();
         return media;
     }
     private double soma(){
         double soma=0;
-        for(int i=0;i<amostra.size();i++){
-            soma+=amostra.get(i);
+        for(int i=0;i<getAmostra().size();i++){
+            soma+=getAmostra().get(i);
         }return soma; 
     }
     @Override
@@ -106,10 +103,20 @@ public class CalculoImpl implements Calculo{
         mediana= amostra.get(posicao);
         return mediana;
     }
-
+    private double soma_desvio_ao_quadrado(){
+        List<Double> desvio=new ArrayList();
+        double r=0;
+        for(int i=0;i<getAmostra().size();i++){
+            desvio.add(getAmostra().get(i)-media());
+        }
+        for(int x=0;x<desvio.size();x++){
+            r+=Math.pow(desvio.get(x),2);
+        }
+        return r;
+    }
     @Override
     public double variancia() {//ok
-        variancia=Math.pow(soma(),2)/amostra.size();
+        variancia=soma_desvio_ao_quadrado()/(amostra.size());
         return variancia;
     }
 
@@ -178,12 +185,26 @@ public class CalculoImpl implements Calculo{
 
     @Override
     public double curtose() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        double result;
+        result=(q3()-q1())/(2*(percent_90()-percent_10()));
+        return result;
+    }
+   
+    //percentil=numero de valores inferiores a x /total de valores*100
+    public double percent_10(){
+        double p10=((soma()-1)*10)/(100+1);
+        return p10;
+    }
+  
+    public double percent_90(){
+        double p90=((soma()-1)*90)/(100+1);
+        return p90;
     }
 
     @Override
     public double obliquidade() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        double r=(media()-moda())/desvio_padrao();
+        return r;
     }
 
     @Override
@@ -211,6 +232,7 @@ public class CalculoImpl implements Calculo{
     }
     public double q2() {
         int x=0;
+        double q2;
         if(amostra.size()%2==0){
            x=amostra.size()/2;
            q2=(amostra.get(x)+amostra.get(x-1))/2;
@@ -222,6 +244,7 @@ public class CalculoImpl implements Calculo{
 
     public double q1() {
         //mediana superior
+        double q1;
         List s=new ArrayList();
         for(int i=0;i<amostra.size()/2;i++){
             s.add(amostra.get(i));
@@ -233,6 +256,7 @@ public class CalculoImpl implements Calculo{
 
     public double q3() {
         //mediana inferior
+        double q3;
          List i=new ArrayList();
         for(int s=amostra.size()/2;s<amostra.size();s++){
             i.add(amostra.get(s));

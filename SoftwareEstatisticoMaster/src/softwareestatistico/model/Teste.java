@@ -40,5 +40,6 @@ public class Teste {
         System.out.println("desvio_padrao:"+c.desvio_padrao());
         System.out.println("amplitude:"+c.amplitude());
         System.out.println("amostra:"+c.getAmostra());
+        System.out.println("amostra:"+c.coeficiente_variacao());
     }
 }

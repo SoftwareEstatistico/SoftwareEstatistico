@@ -17,15 +17,9 @@
           <content>
             <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
               <children>
-                <TableView prefHeight="306.0" prefWidth="595.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="65.0">
-                  <columns>
-                    <TableColumn prefWidth="75.0" text="Column X" />
-                    <TableColumn prefWidth="75.0" text="Column X" />
-                  </columns>
-                </TableView>
-                <TextField layoutX="17.0" layoutY="32.0" prefWidth="200.0" fx:id="textExcel" />
+                <TextField fx:id="textExcel" layoutX="17.0" layoutY="32.0" prefWidth="200.0" />
                 <Label layoutX="17.0" layoutY="14.0" text="Abrir Amostra Excel" />
-                <Button layoutX="226.0" layoutY="32.0" mnemonicParsing="false" text="..." fx:id="abrirExcel" onAction="#handleAbrirExcelAction"  />
+                <Button fx:id="abrirExcel" layoutX="226.0" layoutY="32.0" mnemonicParsing="false" onAction="#handleAbrirExcelAction" text="..." />
               </children>
             </AnchorPane>
           </content>
