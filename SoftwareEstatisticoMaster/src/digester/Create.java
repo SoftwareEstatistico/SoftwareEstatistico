@@ -12,7 +12,7 @@ import org.apache.commons.digester3.binder.DigesterLoader;
 import org.xml.sax.SAXException;
 
 /**
- *
+ *create um objeto a partir de um xml
  * @author Ana
  */
 public class Create {

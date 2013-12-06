@@ -26,6 +26,26 @@ public class Amostra {
     private double max;
     private double min;
 
+    public Amostra() {
+    }
+
+    public Amostra(String nome, List<Dado_Amostra> amostra, double f_absoluta, double f_relativa, double moda, double mediana, double media, double curtose, double obliquidade, double variancia, double desvio_padrao, double amplitude, double max, double min) {
+        this.nome = nome;
+        this.amostra = amostra;
+        this.f_absoluta = f_absoluta;
+        this.f_relativa = f_relativa;
+        this.moda = moda;
+        this.mediana = mediana;
+        this.media = media;
+        this.curtose = curtose;
+        this.obliquidade = obliquidade;
+        this.variancia = variancia;
+        this.desvio_padrao = desvio_padrao;
+        this.amplitude = amplitude;
+        this.max = max;
+        this.min = min;
+    }
+
     public String getNome() {
         return nome;
     }
