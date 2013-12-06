@@ -16,7 +16,7 @@ import org.xml.sax.SAXException;
  * @author Ana
  */
 public class Read {
-    public static void leitura(File file) throws IOException, SAXException{
+    public static Amostra leitura(File file) throws IOException, SAXException{
         Digester digester=new Digester();
         digester.setValidating(false);
         digester.addObjectCreate( "amostra", Amostra.class );
@@ -39,5 +39,6 @@ public class Read {
 
         Amostra amostra=(Amostra)digester.parse(file);
         System.out.println(amostra.getNome());
+        return amostra;
     }
 }
