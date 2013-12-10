@@ -44,16 +44,46 @@ public class Create {
         beanWriter.getBindingConfiguration().setMapIDs(false);
         beanWriter.enablePrettyPrint();
 
-        List<Dado_Amostra> dados=new ArrayList<>();
+        Amostra amostra=new Amostra();
+        amostra.setAmplitude(1);
+        amostra.setCurtose(1);
+        amostra.setDesvio_padrao(1);
+        amostra.setF_absoluta(1);
+        amostra.setF_relativa(1);
+        amostra.setMax(1);
+        amostra.setMedia(1);
+        amostra.setMediana(1);
+        amostra.setMin(1);
+        amostra.setModa(12);
+        amostra.setNome("Venda de Carros");
+        amostra.setObliquidade(1);
+        amostra.setVariancia(1);
         Dado_Amostra d1=new Dado_Amostra();
-        d1.setDescricao("Ford");
-        d1.setValor(54.90);
         Dado_Amostra d2=new Dado_Amostra();
+        Dado_Amostra d3=new Dado_Amostra();
+        Dado_Amostra d4=new Dado_Amostra();
+        Dado_Amostra d5=new Dado_Amostra();
+        Dado_Amostra d6=new Dado_Amostra();
+        d1.setDescricao("Ford");
         d2.setDescricao("Fiat");
-        d2.setValor(32.0);
-        dados.add(d1);
-        dados.add(d2);
-        beanWriter.write("amostra", new Amostra("Venda",dados,20,20,20,20,20,02,20,20,20,20,20,20));
+        d3.setDescricao("Renault");
+        d4.setDescricao("Ferrarri");
+        d5.setDescricao("Lamburguini");
+        d6.setDescricao("GM");
+        d1.setValor(12);
+        d2.setValor(12);
+        d3.setValor(12);
+        d4.setValor(13);
+        d5.setValor(10);
+        
+        amostra.setDados(d1);
+        amostra.setDados(d2);
+        amostra.setDados(d3);
+        amostra.setDados(d4);
+        amostra.setDados(d5);
+        amostra.setDados(d6);
+
+        beanWriter.write("amostra", amostra);
         
         System.out.println(outputWriter.toString());
         File f=new File("C:\\Users\\Ana\\Documents\\NetBeansProjects\\SoftwareEstatisticoDigester\\SoftwareEstatisticoMaster\\xml\\amostra.xml");

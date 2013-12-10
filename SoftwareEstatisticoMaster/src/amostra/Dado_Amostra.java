@@ -27,5 +27,11 @@ public class Dado_Amostra {
     public void setValor(double valor) {
         this.valor = valor;
     }
-    
+
+    @Override
+    public String toString() {
+        return "Dado_Amostra{" + "descricao=" + descricao + ", valor=" + valor + '}';
+    }
+
+   
 }

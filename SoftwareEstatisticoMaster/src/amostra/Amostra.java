@@ -4,6 +4,7 @@
  */
 package amostra;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -12,7 +13,7 @@ import java.util.List;
  */
 public class Amostra {
     private String nome;
-    private List<Dado_Amostra> amostra;
+    private List<Dado_Amostra> dados=new ArrayList<>();
     private double f_absoluta;
     private double f_relativa;
     private double moda;
@@ -27,23 +28,6 @@ public class Amostra {
     private double min;
 
     public Amostra() {
-    }
-
-    public Amostra(String nome, List<Dado_Amostra> amostra, double f_absoluta, double f_relativa, double moda, double mediana, double media, double curtose, double obliquidade, double variancia, double desvio_padrao, double amplitude, double max, double min) {
-        this.nome = nome;
-        this.amostra = amostra;
-        this.f_absoluta = f_absoluta;
-        this.f_relativa = f_relativa;
-        this.moda = moda;
-        this.mediana = mediana;
-        this.media = media;
-        this.curtose = curtose;
-        this.obliquidade = obliquidade;
-        this.variancia = variancia;
-        this.desvio_padrao = desvio_padrao;
-        this.amplitude = amplitude;
-        this.max = max;
-        this.min = min;
     }
 
     public String getNome() {
@@ -149,13 +133,16 @@ public class Amostra {
     public void setMin(double min) {
         this.min = min;
     }
-
-    public List<Dado_Amostra> getAmostra() {
-        return amostra;
+    public void setDados(Dado_Amostra dado){
+        this.dados.add(dado);
+    }
+    public List<Dado_Amostra> getDados(){
+        return this.dados;
     }
 
-    public void setAmostra(List<Dado_Amostra> amostra) {
-        this.amostra = amostra;
+    @Override
+    public String toString() {
+        return "Amostra{" + "nome=" + nome + ", dados=" + dados + ", f_absoluta=" + f_absoluta + ", f_relativa=" + f_relativa + ", moda=" + moda + ", mediana=" + mediana + ", media=" + media + ", curtose=" + curtose + ", obliquidade=" + obliquidade + ", variancia=" + variancia + ", desvio_padrao=" + desvio_padrao + ", amplitude=" + amplitude + ", max=" + max + ", min=" + min + '}';
     }
     
 }

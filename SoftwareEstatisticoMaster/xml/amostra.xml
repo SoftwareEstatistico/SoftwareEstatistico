@@ -1,25 +1,41 @@
 <?xml version='1.0' ?>  <amostra>
-    <amostra>
+    <amplitude>1.0</amplitude>
+    <curtose>1.0</curtose>
+    <dados>
       <Dado_Amostra>
         <descricao>Ford</descricao>
-        <valor>54.9</valor>
+        <valor>12.0</valor>
       </Dado_Amostra>
       <Dado_Amostra>
         <descricao>Fiat</descricao>
-        <valor>32.0</valor>
+        <valor>12.0</valor>
       </Dado_Amostra>
-    </amostra>
-    <amplitude>20.0</amplitude>
-    <curtose>2.0</curtose>
-    <desvio_padrao>20.0</desvio_padrao>
-    <f_absoluta>20.0</f_absoluta>
-    <f_relativa>20.0</f_relativa>
-    <max>20.0</max>
-    <media>20.0</media>
-    <mediana>20.0</mediana>
-    <min>20.0</min>
-    <moda>20.0</moda>
-    <nome>Venda</nome>
-    <obliquidade>20.0</obliquidade>
-    <variancia>20.0</variancia>
+      <Dado_Amostra>
+        <descricao>Renault</descricao>
+        <valor>12.0</valor>
+      </Dado_Amostra>
+      <Dado_Amostra>
+        <descricao>Ferrarri</descricao>
+        <valor>13.0</valor>
+      </Dado_Amostra>
+      <Dado_Amostra>
+        <descricao>Lamburguini</descricao>
+        <valor>10.0</valor>
+      </Dado_Amostra>
+      <Dado_Amostra>
+        <descricao>GM</descricao>
+        <valor>0.0</valor>
+      </Dado_Amostra>
+    </dados>
+    <desvio_padrao>1.0</desvio_padrao>
+    <f_absoluta>1.0</f_absoluta>
+    <f_relativa>1.0</f_relativa>
+    <max>1.0</max>
+    <media>1.0</media>
+    <mediana>1.0</mediana>
+    <min>1.0</min>
+    <moda>12.0</moda>
+    <nome>Venda de Carros</nome>
+    <obliquidade>1.0</obliquidade>
+    <variancia>1.0</variancia>
   </amostra>

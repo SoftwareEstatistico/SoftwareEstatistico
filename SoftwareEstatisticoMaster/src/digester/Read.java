@@ -9,6 +9,7 @@ import amostra.Dado_Amostra;
 import java.io.File;
 import java.io.IOException;
 import org.apache.commons.digester3.Digester;
+import org.apache.commons.digester3.binder.DigesterLoader;
 import org.xml.sax.SAXException;
 
 /**
@@ -20,6 +21,7 @@ public class Read {
         Digester digester=new Digester();
         digester.setValidating(false);
         digester.addObjectCreate( "amostra", Amostra.class );
+//        digester.addSetProperties("amostra");
         digester.addBeanPropertySetter("amostra/amplitude", "amplitude" );
         digester.addBeanPropertySetter("amostra/curtose", "curtose" );
         digester.addBeanPropertySetter("amostra/desvio_padrao", "desvio_padrao" );
@@ -32,13 +34,18 @@ public class Read {
         digester.addBeanPropertySetter("amostra/nome", "nome" );
         digester.addBeanPropertySetter("amostra/obliquidade", "obliquidade" );
         digester.addBeanPropertySetter("amostra/variancia", "variancia" );
-        digester.addObjectCreate( "amostra/dados_amostra", Dado_Amostra.class );
-        digester.addBeanPropertySetter("amostra/dados_amostra/descricao", "descricao" );
-        digester.addBeanPropertySetter("amostra/dados_amostra/valor", "valor" );
-        digester.addSetNext( "amostra/dados_amostra", "setDados_Amostra" );
-
+        
+        digester.addBeanPropertySetter("amostra/dados", "dados" );
+        digester.addObjectCreate( "amostra/dados/Dado_Amostra", Dado_Amostra.class );
+        digester.addSetProperties("amostra/dados/Dado_Amostra");
+        digester.addBeanPropertySetter("amostra/dados/Dado_Amostra/descricao", "descricao" );
+        digester.addBeanPropertySetter("amostra/dados/Dado_Amostra/valor", "valor" );
+        digester.addSetNext( "amostra/dados/Dado_Amostra", "setDados");
+//        DigesterLoader loader = DigesterLoader.newLoader(new Rules());
+//        Digester digester=loader.newDigester();
         Amostra amostra=(Amostra)digester.parse(file);
-        System.out.println(amostra.getNome());
+        
+        System.out.println(amostra);
         return amostra;
     }
 }
