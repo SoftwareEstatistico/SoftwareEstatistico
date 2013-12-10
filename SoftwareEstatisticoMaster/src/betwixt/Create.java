@@ -93,7 +93,8 @@ public class Create {
              f.createNewFile();
         else
             f.delete();
-       OutputStream bytes = new FileOutputStream(f, true); // passado "true" para gravar no mesmo arquivo  
+       System.out.println(f.getAbsolutePath()); 
+       OutputStream bytes = new FileOutputStream(Create.class.getResource("/xml").getPath()+"/amostra.xml", true); // passado "true" para gravar no mesmo arquivo  
        OutputStreamWriter chars = new OutputStreamWriter(bytes);  
        BufferedWriter strings = new BufferedWriter(chars);  
   
