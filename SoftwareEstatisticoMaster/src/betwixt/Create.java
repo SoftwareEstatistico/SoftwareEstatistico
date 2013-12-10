@@ -75,6 +75,7 @@ public class Create {
         d3.setValor(12);
         d4.setValor(13);
         d5.setValor(10);
+        d6.setValor(10);
         
         amostra.setDados(d1);
         amostra.setDados(d2);
@@ -86,12 +87,13 @@ public class Create {
         beanWriter.write("amostra", amostra);
         
         System.out.println(outputWriter.toString());
-        File f=new File("C:\\Users\\Ana\\Documents\\NetBeansProjects\\SoftwareEstatisticoDigester\\SoftwareEstatisticoMaster\\xml\\amostra.xml");
+        
+        File f=new File(Create.class.getResource("/xml").getPath()+"/amostra.xml");
         if(!f.exists())
              f.createNewFile();
         else
             f.delete();
-       OutputStream bytes = new FileOutputStream("C:\\Users\\Ana\\Documents\\NetBeansProjects\\SoftwareEstatisticoDigester\\SoftwareEstatisticoMaster\\xml\\amostra.xml", true); // passado "true" para gravar no mesmo arquivo  
+       OutputStream bytes = new FileOutputStream(f, true); // passado "true" para gravar no mesmo arquivo  
        OutputStreamWriter chars = new OutputStreamWriter(bytes);  
        BufferedWriter strings = new BufferedWriter(chars);  
   

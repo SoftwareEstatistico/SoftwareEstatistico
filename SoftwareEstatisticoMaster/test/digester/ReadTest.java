@@ -42,7 +42,7 @@ public class ReadTest {
     @Test
     public void testLeitura() throws Exception {
         System.out.println("leitura");
-        File file = new File("C:\\Users\\Ana\\Documents\\NetBeansProjects\\SoftwareEstatisticoDigester\\SoftwareEstatisticoMaster\\xml\\amostra.xml");
+        File file = new File(ReadTest.class.getResource("/xml/amostra.xml").getPath());
         if(file.exists()){
             System.out.println("Existe");
             Read.leitura(file);

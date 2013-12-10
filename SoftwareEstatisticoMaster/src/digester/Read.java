@@ -9,7 +9,6 @@ import amostra.Dado_Amostra;
 import java.io.File;
 import java.io.IOException;
 import org.apache.commons.digester3.Digester;
-import org.apache.commons.digester3.binder.DigesterLoader;
 import org.xml.sax.SAXException;
 
 /**
@@ -40,9 +39,8 @@ public class Read {
         digester.addSetProperties("amostra/dados/Dado_Amostra");
         digester.addBeanPropertySetter("amostra/dados/Dado_Amostra/descricao", "descricao" );
         digester.addBeanPropertySetter("amostra/dados/Dado_Amostra/valor", "valor" );
+        //super importante para adicionar os outros da lista
         digester.addSetNext( "amostra/dados/Dado_Amostra", "setDados");
-//        DigesterLoader loader = DigesterLoader.newLoader(new Rules());
-//        Digester digester=loader.newDigester();
         Amostra amostra=(Amostra)digester.parse(file);
         
         System.out.println(amostra);
