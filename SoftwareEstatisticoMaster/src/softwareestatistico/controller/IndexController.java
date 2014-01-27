@@ -28,8 +28,8 @@ import javafx.scene.control.TableView;
 import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import softwareestatistico.model.Calculo;
-import softwareestatistico.model.CalculoImpl;
+import calculo.Calculo;
+import calculo.CalculoImpl;
 
 /**
  *

@@ -2,9 +2,10 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package amostra;
+package model;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -13,9 +14,10 @@ import java.util.List;
  */
 public class Amostra {
     private String nome;
-    private List<Dado_Amostra> dados=new ArrayList<>();
-    private double f_absoluta;
-    private double f_relativa;
+//    private List<Dado_Amostra> dados=new ArrayList<>();
+    private List<ValorAmostra> dados=new ArrayList<>();
+    private List<FrequenciaAbsoluta1> fa=new ArrayList<>();
+    private List<FrequenciaRelativa1> fr=new ArrayList<>();
     private double moda;
     private double mediana;
     private double media;
@@ -38,21 +40,22 @@ public class Amostra {
         this.nome = nome;
     }
 
-    public double getF_absoluta() {
-        return f_absoluta;
+    public List<FrequenciaAbsoluta1> getFa() {
+        return fa;
     }
 
-    public void setF_absoluta(double f_absoluta) {
-        this.f_absoluta = f_absoluta;
+    public void setFa(FrequenciaAbsoluta1 fa) {
+        this.fa.add(fa); 
     }
 
-    public double getF_relativa() {
-        return f_relativa;
+    public List<FrequenciaRelativa1> getFr() {
+        return fr;
     }
 
-    public void setF_relativa(double f_relativa) {
-        this.f_relativa = f_relativa;
+    public void setFr(FrequenciaRelativa1 fr) {
+        this.fr.add(fr);
     }
+
 
     public double getModa() {
         return moda;
@@ -133,16 +136,25 @@ public class Amostra {
     public void setMin(double min) {
         this.min = min;
     }
-    public void setDados(Dado_Amostra dado){
-        this.dados.add(dado);
-    }
-    public List<Dado_Amostra> getDados(){
-        return this.dados;
+
+    public void setDados(ValorAmostra dados) {
+        this.dados.add(dados);
     }
 
+    public List<ValorAmostra> getDados() {
+        return dados;
+    }
+    public List<Double> valores_ordenados_amostra(){
+        List<Double> l=new ArrayList<>();
+        for(int i=0;i<dados.size();i++){
+            l.add(dados.get(i).getValor());
+        }
+        Collections.sort(l);
+        return l;
+    }
     @Override
     public String toString() {
-        return "Amostra{" + "nome=" + nome + ", dados=" + dados + ", f_absoluta=" + f_absoluta + ", f_relativa=" + f_relativa + ", moda=" + moda + ", mediana=" + mediana + ", media=" + media + ", curtose=" + curtose + ", obliquidade=" + obliquidade + ", variancia=" + variancia + ", desvio_padrao=" + desvio_padrao + ", amplitude=" + amplitude + ", max=" + max + ", min=" + min + '}';
+        return "Amostra{" + "nome=" + nome + ", dados=" + dados + ", f_absoluta=" + fa+ ", f_relativa=" + fr + ", moda=" + moda + ", mediana=" + mediana + ", media=" + media + ", curtose=" + curtose + ", obliquidade=" + obliquidade + ", variancia=" + variancia + ", desvio_padrao=" + desvio_padrao + ", amplitude=" + amplitude + ", max=" + max + ", min=" + min + '}';
     }
     
 }
