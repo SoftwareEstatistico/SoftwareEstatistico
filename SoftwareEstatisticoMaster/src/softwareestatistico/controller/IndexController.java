@@ -53,8 +53,6 @@ public class IndexController implements Initializable {
     @FXML
     private ListView lista_amostra;
     
-    private Stage stage=new Stage();
-    private File file;
     private ObservableList amostras;
     @FXML
     private void handleAbrirAction(ActionEvent event) throws IOException, SAXException {
@@ -64,6 +62,10 @@ public class IndexController implements Initializable {
     @FXML
     private void handleSalvarAction(ActionEvent event) throws IOException, SAXException {
         SaveFile.getInstance().save();
+    }
+    @FXML
+    private void handleChartAction(ActionEvent event) throws IOException, SAXException {
+       
     }
     
     @Override

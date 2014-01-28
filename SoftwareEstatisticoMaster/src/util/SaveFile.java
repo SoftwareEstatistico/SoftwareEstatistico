@@ -6,6 +6,8 @@ package util;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
@@ -33,6 +35,15 @@ public class SaveFile {
         stage=new Stage();
         filechoose=new FileChooser();
         filechoose.setTitle("Salvar Arquivo");
-        filechoose.showSaveDialog(stage).createNewFile();
+        filechoose.setInitialFileName("amostra.xml");
+        List<String> list=new ArrayList<>();
+        list.add(".xml");
+        list.add(".csv");
+        FileChooser.ExtensionFilter ext=new FileChooser.ExtensionFilter("extensoes", list);
+        filechoose.getExtensionFilters().add(ext);
+        try{
+            filechoose.showSaveDialog(stage).createNewFile();
+        }catch(Exception e){
+        }
     }
 }
