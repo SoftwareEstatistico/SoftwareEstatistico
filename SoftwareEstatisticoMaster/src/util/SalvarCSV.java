@@ -11,6 +11,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.List;
 
 /**
  *
@@ -38,14 +39,18 @@ public class SalvarCSV {
 //               return bufSaida.toString();  
 //                // return bufSaida.toString();  
 //            }  
-     public void criarFile(String vlr, String filepath){ 
+     public void criarFile(List<String> vlrs, String filepath){ 
         try{
+            File file=new File(filepath);
+            if(file.exists()){
             //; coluna /n muda de linha
-            BufferedWriter StrW = new BufferedWriter(new FileWriter(filepath));
+                BufferedWriter StrW = new BufferedWriter(new FileWriter(filepath));
+                for (String vlr : vlrs) {
+                    StrW.write(vlr+";");
+                }
 
-            StrW.write(vlr);
-
-            StrW.close(); 
+                StrW.close(); 
+            }
         }catch (FileNotFoundException ex)
         {
         ex.printStackTrace(); 
@@ -62,13 +67,13 @@ public class SalvarCSV {
             String[] TableLine;
 
             while((Str = StrR.readLine())!= null){
-            TableLine = Str.split(";");
+                TableLine = Str.split(";");
 
             for (String cell : TableLine) { 
-            System.out.print(cell+" "); 
-            }
-            System.out.println("\n");
-            }
+                System.out.print(cell+" "); 
+                }
+                System.out.println("\n");
+                }
             StrR.close();
         } catch (FileNotFoundException e) {
         e.printStackTrace();

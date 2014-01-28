@@ -4,11 +4,10 @@
  */
 package util;
 
-import calculo.Calculo;
-import calculo.CalculoImpl;
+import java.util.ArrayList;
+import java.util.List;
 import model.Amostra;
 import model.ValorAmostra;
-import static org.easymock.EasyMock.createStrictMock;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -20,11 +19,11 @@ import org.junit.Test;
  * @author Ana
  */
 public class SalvarCSVTest {
-    private Amostra amostra;
-    private ValorAmostra v1;
-    private ValorAmostra v2;
-    private ValorAmostra v3;
-    private ValorAmostra v4;
+    private Amostra amostra=new Amostra();
+    private ValorAmostra v1=new ValorAmostra();
+    private ValorAmostra v2=new ValorAmostra();
+    private ValorAmostra v3=new ValorAmostra();
+    private ValorAmostra v4=new ValorAmostra();
     public SalvarCSVTest() {
     }
     
@@ -63,11 +62,11 @@ public class SalvarCSVTest {
     public void testCriarFile() {
         System.out.println("createCsvFile");
         SalvarCSV instance = new SalvarCSV();
-        for (ValorAmostra v : amostra.getDados()) {
-            instance.criarFile(v.getDate().toString(),SalvarCSV.class.getResource("/xml").getPath()+"/amostra.csv");
-            instance.criarFile(v.getValor().toString(),SalvarCSV.class.getResource("/xml").getPath()+"/amostra.csv");
+        List<String>vlrs=new ArrayList<>();
+        for (Double d : amostra.valores_ordenados_amostra()) {
+            vlrs.add(""+d);
         }
-        
+        instance.criarFile(vlrs,SalvarCSV.class.getResource("/csv").getPath()+"/amostra.csv");
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
     }
