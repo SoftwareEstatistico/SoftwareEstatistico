@@ -58,28 +58,30 @@ public class SalvarCSV {
         {
         e.printStackTrace(); } 
         }
-     public void LerFile(String filepath){
+     public String LerFile(String filepath){
+        String Str,s; 
+        s="";
         try {
-
             BufferedReader StrR = new BufferedReader(new FileReader(filepath));
-
-            String Str;
+            
             String[] TableLine;
-
+           
             while((Str = StrR.readLine())!= null){
                 TableLine = Str.split(";");
 
             for (String cell : TableLine) { 
-                System.out.print(cell+" "); 
+                s+=cell+" "; 
                 }
-                System.out.println("\n");
+                s+="\n";
                 }
             StrR.close();
+            
         } catch (FileNotFoundException e) {
         e.printStackTrace();
         } catch (IOException ex){
         ex.printStackTrace();
         }
+         return s;
 
     }
      

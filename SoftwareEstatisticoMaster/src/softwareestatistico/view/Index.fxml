@@ -17,15 +17,26 @@
           <content>
             <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
               <children>
-                <TextField fx:id="textExcel" layoutX="17.0" layoutY="32.0" prefWidth="200.0" />
-                <Label layoutX="17.0" layoutY="14.0" text="Abrir Amostra Excel" />
-                <Button fx:id="abrirExcel" layoutX="226.0" layoutY="32.0" mnemonicParsing="false" onAction="#handleAbrirExcelAction" text="..." />
-                <TableView layoutY="58.0" prefHeight="313.0" prefWidth="595.0" fx:id="tableExcel" >
-                  <columns>
-                    <TableColumn prefWidth="75.0" text="Column X" />
-                    <TableColumn prefWidth="75.0" text="Column X" />
-                  </columns>
-                </TableView>
+                <BorderPane prefHeight="371.0" prefWidth="595.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <center>
+                    <TextArea prefWidth="200.0" wrapText="true" fx:id="textFileContent"/>
+                  </center>
+                  <top>
+                    <GridPane>
+                      <children>
+                        <Button mnemonicParsing="false" prefHeight="22.0" prefWidth="87.0" text="..." GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                        <TextField prefWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="0" fx:id="textFile" />
+                      </children>
+                      <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="499.0" minWidth="10.0" prefWidth="496.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="296.0" minWidth="10.0" prefWidth="99.0" />
+                      </columnConstraints>
+                      <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      </rowConstraints>
+                    </GridPane>
+                  </top>
+                </BorderPane>
               </children>
             </AnchorPane>
           </content>
@@ -33,120 +44,27 @@
       </expandedPane>
       <panes>
         <fx:reference source="x2" />
-        <TitledPane animated="false" text="Avaliação Descritiva da Amostra">
+        <TitledPane animated="false" text="Resultados">
           <content>
-            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-              <children>
-                <Text layoutX="28.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Moda,Mediana e etc" />
-              </children>
-            </AnchorPane>
+            <TextArea prefWidth="200.0" promptText="Resultados" fx:id="resultText"/>
           </content>
         </TitledPane>
-        <TitledPane fx:id="x1" animated="false" text="Avaliação Gráfica da Amostra">
+        <TitledPane fx:id="x1" animated="false" text="Histograma">
           <content>
             <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
               <children>
-                <TabPane prefHeight="371.0" prefWidth="595.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                  <tabs>
-                    <Tab text="Pie Chart">
-                      <content>
-                        <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                          <children>
-                            <PieChart id="PieChart" prefHeight="340.0" prefWidth="595.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                          </children>
-                        </AnchorPane>
-                      </content>
-                    </Tab>
-                    <Tab text="Line Chart">
-                      <content>
-                        <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                          <children>
-                            <LineChart id="LineChartNxN" prefHeight="340.0" prefWidth="595.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                              <xAxis>
-                                <NumberAxis side="BOTTOM" />
-                              </xAxis>
-                              <yAxis>
-                                <NumberAxis side="LEFT" />
-                              </yAxis>
-                            </LineChart>
-                          </children>
-                        </AnchorPane>
-                      </content>
-                    </Tab>
-                    <Tab text="Area Chart">
-                      <content>
-                        <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                          <children>
-                            <AreaChart id="AreaChartNxN" prefHeight="340.0" prefWidth="595.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                              <xAxis>
-                                <NumberAxis side="BOTTOM" />
-                              </xAxis>
-                              <yAxis>
-                                <NumberAxis side="LEFT" />
-                              </yAxis>
-                            </AreaChart>
-                          </children>
-                        </AnchorPane>
-                      </content>
-                    </Tab>
-                    <Tab text="Bar Chart">
-                      <content>
-                        <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                          <children>
-                            <BarChart prefHeight="340.0" prefWidth="595.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                              <xAxis>
-                                <CategoryAxis side="BOTTOM">
-                                  <categories>
-                                    <FXCollections fx:factory="observableArrayList" />
-                                  </categories>
-                                </CategoryAxis>
-                              </xAxis>
-                              <yAxis>
-                                <NumberAxis side="LEFT" />
-                              </yAxis>
-                            </BarChart>
-                          </children>
-                        </AnchorPane>
-                      </content>
-                    </Tab>
-                    <Tab text="Bubble Chart">
-                      <content>
-                        <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                          <children>
-                            <BubbleChart id="BubbleChart" prefHeight="340.0" prefWidth="595.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                              <xAxis>
-                                <NumberAxis side="BOTTOM" />
-                              </xAxis>
-                              <yAxis>
-                                <NumberAxis side="LEFT" />
-                              </yAxis>
-                            </BubbleChart>
-                          </children>
-                        </AnchorPane>
-                      </content>
-                    </Tab>
-                    <Tab text="Scatter Chart">
-                      <content>
-                        <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                          <children>
-                            <ScatterChart id="ScatterChart" prefHeight="340.0" prefWidth="595.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                              <xAxis>
-                                <CategoryAxis side="BOTTOM">
-                                  <categories>
-                                    <FXCollections fx:factory="observableArrayList" />
-                                  </categories>
-                                </CategoryAxis>
-                              </xAxis>
-                              <yAxis>
-                                <NumberAxis side="LEFT" />
-                              </yAxis>
-                            </ScatterChart>
-                          </children>
-                        </AnchorPane>
-                      </content>
-                    </Tab>
-                  </tabs>
-                </TabPane>
+                <BarChart fx:id="barChart"  prefHeight="371.0" prefWidth="595.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <xAxis>
+                    <CategoryAxis side="BOTTOM">
+                      <categories>
+                        <FXCollections fx:factory="observableArrayList" />
+                      </categories>
+                    </CategoryAxis>
+                  </xAxis>
+                  <yAxis>
+                    <NumberAxis side="LEFT" />
+                  </yAxis>
+                </BarChart>
               </children>
             </AnchorPane>
           </content>

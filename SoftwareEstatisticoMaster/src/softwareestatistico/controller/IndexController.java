@@ -9,7 +9,10 @@ gerar/exportar gráficos com javafx
  */
 package softwareestatistico.controller;
 
+import calculo.Calculo;
+import calculo.CalculoImpl;
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.collections.ObservableList;
@@ -25,11 +28,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextArea;
 import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import calculo.Calculo;
-import calculo.CalculoImpl;
+import org.xml.sax.SAXException;
+import util.OpenFile;
 
 /**
  *
@@ -38,31 +42,19 @@ import calculo.CalculoImpl;
 public class IndexController implements Initializable {
     
     @FXML
-    private Button abrirExcel;
+    private Button abrir;
     
     @FXML
-    private TextField textExcel;
+    private TextField textFile;
     
     @FXML
-    private PieChart pieChart;
-    
-    @FXML
-    private BubbleChart bubleChart;
-    
-    @FXML
-    private LineChart lineChart;
-    
-    @FXML
-    private ScatterChart scatterChart;
+    private TextArea textFileContent;
     
     @FXML
     private BarChart barChart;
     
     @FXML
-    private TableView tableExcel;
-    
-    @FXML
-    private Text resultText;
+    private TextArea resultText;
     
     @FXML
     private ListView lista_amostra;
@@ -70,14 +62,9 @@ public class IndexController implements Initializable {
     private Stage stage=new Stage();
     private File file;
     private ObservableList amostras;
-    
     @FXML
-    private void handleAbrirExcelAction(ActionEvent event) {
-        FileChooser filechoose=new FileChooser();
-        filechoose.setTitle("Abrir Amostra excel");
-        this.file=filechoose.showOpenDialog(this.stage);
-        textExcel.setText(this.file.getName());
-        Calculo c=new CalculoImpl();
+    private void handleAbrirExcelAction(ActionEvent event) throws IOException, SAXException {
+        textFileContent.setText(OpenFile.getInstance().open());
         //ler arquivo excel e transformar em lista
         //passar a lista para o calculo
     }

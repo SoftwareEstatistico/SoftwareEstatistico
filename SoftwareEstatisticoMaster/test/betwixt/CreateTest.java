@@ -6,8 +6,6 @@ package betwixt;
 
 import calculo.CalculoImpl;
 import model.Amostra;
-import model.FrequenciaAbsoluta1;
-import model.FrequenciaRelativa1;
 import model.ValorAmostra;
 import org.junit.After;
 import org.junit.AfterClass;

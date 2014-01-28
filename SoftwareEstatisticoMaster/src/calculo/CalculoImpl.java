@@ -28,7 +28,6 @@ import threads.Variancia;
  */
 public class CalculoImpl implements Calculo{
     private Amostra amostra;
-    
     public Amostra getAmostra() {
         return amostra;
     }
