@@ -28,7 +28,7 @@ public class OpenFile {
     public static OpenFile getInstance() {
         if(instance==null)
             if(instance==null)
-                instance.getInstance();
+                instance=new OpenFile();
         return instance;
     }
     
@@ -41,7 +41,7 @@ public class OpenFile {
         if(file.getName().endsWith(".xml")){
            return Read.leitura(file).toString();
         }else if(file.getName().endsWith(".csv")){
-           return readcsv.LerFile(file.getPath());
+           return readcsv.LerFile(file.getPath()).toString();
         }
         return "Erro ao ler o arquivo verifique se este é um XML ou um CSV";
     }

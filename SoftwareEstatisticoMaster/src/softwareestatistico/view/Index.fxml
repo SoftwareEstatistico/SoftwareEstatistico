@@ -24,7 +24,7 @@
                   <top>
                     <GridPane>
                       <children>
-                        <Button mnemonicParsing="false" prefHeight="22.0" prefWidth="87.0" text="..." GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                        <Button mnemonicParsing="false" prefHeight="22.0" prefWidth="87.0" text="..." GridPane.columnIndex="1" GridPane.rowIndex="0" fx:id="abrir" onAction="#handleAbrirExcelAction" />
                         <TextField prefWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="0" fx:id="textFile" />
                       </children>
                       <columnConstraints>

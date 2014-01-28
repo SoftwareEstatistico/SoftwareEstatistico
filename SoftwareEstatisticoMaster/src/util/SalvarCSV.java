@@ -12,33 +12,17 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
+import model.Amostra;
+import model.ValorAmostra;
 
 /**
  *
  * @author Ana
  */
 public class SalvarCSV {
-//     public static String leArquivo(String arquivo) throws FileNotFoundException, IOException {  
-//  
-//            File file = new File(arquivo);  
-//
-//            if (! file.exists()) {  
-//                return null;  
-//            }  
-//                BufferedReader br = new BufferedReader(new FileReader(arquivo));  
-//                StringBuilder bufSaida = new StringBuilder();  
-//
-//                String linha;  
-//
-//                while( (linha = br.readLine()) != null ){  
-//
-//                   bufSaida.append(linha).append("\n");  
-//                 }  
-//
-//               br.close();  
-//               return bufSaida.toString();  
-//                // return bufSaida.toString();  
-//            }  
+     private Amostra amostra; 
+     private ValorAmostra valorAmostra;
+     //valor e date intercalados
      public void criarFile(List<String> vlrs, String filepath){ 
         try{
             File file=new File(filepath);
@@ -46,7 +30,7 @@ public class SalvarCSV {
             //; coluna /n muda de linha
                 BufferedWriter StrW = new BufferedWriter(new FileWriter(filepath));
                 for (String vlr : vlrs) {
-                    StrW.write(vlr+";");
+                    StrW.write(vlr+";");//corrigir
                 }
 
                 StrW.close(); 
@@ -58,9 +42,10 @@ public class SalvarCSV {
         {
         e.printStackTrace(); } 
         }
-     public String LerFile(String filepath){
-        String Str,s; 
-        s="";
+     public Amostra LerFile(String filepath){
+        String Str; 
+        Amostra amostra=new Amostra();
+        
         try {
             BufferedReader StrR = new BufferedReader(new FileReader(filepath));
             
@@ -70,9 +55,10 @@ public class SalvarCSV {
                 TableLine = Str.split(";");
 
             for (String cell : TableLine) { 
-                s+=cell+" "; 
+                valorAmostra=new ValorAmostra();
+                valorAmostra.setValor(Double.parseDouble(cell));
+                amostra.setDados(valorAmostra);
                 }
-                s+="\n";
                 }
             StrR.close();
             
@@ -81,7 +67,7 @@ public class SalvarCSV {
         } catch (IOException ex){
         ex.printStackTrace();
         }
-         return s;
+         return amostra;
 
     }
      
