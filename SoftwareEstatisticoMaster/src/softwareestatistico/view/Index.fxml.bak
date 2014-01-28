@@ -19,21 +19,19 @@
               <children>
                 <BorderPane prefHeight="371.0" prefWidth="595.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                   <center>
-                    <TextArea fx:id="textFileContent" prefWidth="200.0" wrapText="true" />
+                    <TextArea prefWidth="200.0" wrapText="true" fx:id="textFileContent"/>
                   </center>
                   <top>
                     <GridPane>
                       <children>
-                        <Button fx:id="abrir" mnemonicParsing="false" onAction="#handleAbrirAction" prefHeight="22.0" prefWidth="87.0" text="..." GridPane.columnIndex="1" GridPane.rowIndex="0" />
-                        <TextField fx:id="textFile" prefWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-                        <Button fx:id="salvar" onAction="#handleSalvarAction" mnemonicParsing="false" prefWidth="87.00009999999747" text="Salvar" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Button mnemonicParsing="false" prefHeight="22.0" prefWidth="87.0" text="..." GridPane.columnIndex="1" GridPane.rowIndex="0" fx:id="abrir" onAction="#handleAbrirExcelAction" />
+                        <TextField prefWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="0" fx:id="textFile" />
                       </children>
                       <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="499.0" minWidth="10.0" prefWidth="496.0" />
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="296.0" minWidth="10.0" prefWidth="99.0" />
                       </columnConstraints>
                       <rowConstraints>
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                       </rowConstraints>
                     </GridPane>
@@ -48,14 +46,14 @@
         <fx:reference source="x2" />
         <TitledPane animated="false" text="Resultados">
           <content>
-            <TextArea fx:id="resultText" prefWidth="200.0" promptText="Resultados" />
+            <TextArea prefWidth="200.0" promptText="Resultados" fx:id="resultText"/>
           </content>
         </TitledPane>
         <TitledPane fx:id="x1" animated="false" text="Histograma">
           <content>
             <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
               <children>
-                <BarChart fx:id="barChart" prefHeight="371.0" prefWidth="595.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                <BarChart fx:id="barChart"  prefHeight="371.0" prefWidth="595.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                   <xAxis>
                     <CategoryAxis side="BOTTOM">
                       <categories>

@@ -154,7 +154,20 @@ public class Amostra {
     }
     @Override
     public String toString() {
+//        String xml=""
+//+ "<?xml version='1.0' ?>"
+//+ "  <amostra>\n" +
+//"    <dados>\n" +
+// "      <ValorAmostra>\n" ;
+//        for (ValorAmostra valorAmostra : dados) {
+//            
+//            xml+="<date>"+valorAmostra.getDate().toString()+"</date>\n" +
+//            "<valor>"+valorAmostra.getValor().toString()+"</valor>\n" 
+//            +"</ValorAmostra>\n" ;
+//        }
+//xml+="</amostra>";
         return "Amostra{" + "nome=" + nome + ", dados=" + dados + ", f_absoluta=" + fa+ ", f_relativa=" + fr + ", moda=" + moda + ", mediana=" + mediana + ", media=" + media + ", curtose=" + curtose + ", obliquidade=" + obliquidade + ", variancia=" + variancia + ", desvio_padrao=" + desvio_padrao + ", amplitude=" + amplitude + ", max=" + max + ", min=" + min + '}';
+//    return xml;
     }
     
 }
