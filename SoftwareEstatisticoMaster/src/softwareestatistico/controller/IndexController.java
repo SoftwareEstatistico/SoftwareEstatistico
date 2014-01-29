@@ -9,7 +9,6 @@ gerar/exportar gráficos com javafx
  */
 package softwareestatistico.controller;
 
-import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -22,7 +21,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextArea;
-import javafx.stage.Stage;
 import org.xml.sax.SAXException;
 import util.OpenFile;
 import util.SaveFile;
