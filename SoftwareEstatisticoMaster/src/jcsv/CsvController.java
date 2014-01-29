@@ -25,7 +25,7 @@ import model.ValorAmostra;
 public class CsvController {
     
     private ValorAmostra valorAmostra;
-    
+    //not working
     public  List<ValorAmostra> read(String arqname) throws FileNotFoundException, IOException{
         Reader csvFile = new InputStreamReader(Main.class.getResourceAsStream("/"+arqname));
 

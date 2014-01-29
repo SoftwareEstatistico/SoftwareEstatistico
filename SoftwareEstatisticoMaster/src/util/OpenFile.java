@@ -7,8 +7,11 @@ package util;
 import digester.Read;
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import jcsv.CsvController;
+import model.ValorAmostra;
 import org.xml.sax.SAXException;
 
 /**
@@ -33,17 +36,18 @@ public class OpenFile {
     }
     
     
-    public String open() throws IOException, SAXException{
+    public List<ValorAmostra> open() throws IOException, SAXException{
         stage=new Stage();
         filechoose=new FileChooser();
         filechoose.setTitle("Abrir Arquivo");
         file=filechoose.showOpenDialog(stage);
+        CsvController csv=new CsvController();
         if(file.getName().endsWith(".xml")){
-           return Read.leitura(file).toString();
+           return Read.leitura(file).getDados();
         }else if(file.getName().endsWith(".csv")){
-           return readcsv.LerFile(file.getPath());
+           return csv.read(file.getPath());
         }
-        return "Erro ao ler o arquivo verifique se este é um XML ou um CSV";
+        return null;
     }
     
 }

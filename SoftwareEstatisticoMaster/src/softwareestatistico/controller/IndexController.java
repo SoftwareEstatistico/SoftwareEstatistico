@@ -26,8 +26,21 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextArea;
 import model.Amostra;
+import model.FrequenciaAbsoluta1;
+import model.FrequenciaRelativa1;
 import model.ValorAmostra;
 import org.xml.sax.SAXException;
+import threads.Curtose;
+import threads.DesvioPadrao;
+import threads.FrequenciaAbsoluta;
+import threads.FrequenciaRelativa;
+import threads.Max;
+import threads.Media;
+import threads.Mediana;
+import threads.Min;
+import threads.Moda;
+import threads.Obliquidade;
+import threads.Variancia;
 import util.OpenFile;
 import util.SaveFile;
 
@@ -55,7 +68,7 @@ public class IndexController implements Initializable {
     private TextField textValor;
     
     @FXML
-    private TextArea textFileContent;
+    private TextArea resultText;
     
     @FXML
     private BarChart barChart;
@@ -85,9 +98,10 @@ public class IndexController implements Initializable {
     
     private ObservableList dados;
     private List<ValorAmostra> vlrs;
-    @FXML
+    private List<FrequenciaRelativa1> frs;
+    @FXML//arrumar
     private void handleAbrirAction(ActionEvent event) throws IOException, SAXException {
-        textFileContent.setText(OpenFile.getInstance().open());
+        dados.addAll(OpenFile.getInstance().open());
     }
     
     @FXML
@@ -115,7 +129,62 @@ public class IndexController implements Initializable {
     }
     @FXML
     private void handleChartAction(ActionEvent event) throws IOException, SAXException {
-       
+        Amostra amostra=new Amostra();
+        for (ValorAmostra valorAmostra: vlrs) {
+            amostra.setDados(valorAmostra);
+        }
+        //para gerar gráfico
+        FrequenciaAbsoluta fa=new FrequenciaAbsoluta(amostra);
+        fa.run();
+        FrequenciaRelativa fr=new FrequenciaRelativa(amostra);
+        fr.run();
+        if(moda.isSelected()){
+            Moda mo=new Moda(amostra);
+            mo.run();
+            System.out.println(amostra.getModa());
+        }
+        if(media.isSelected()){
+            Media me=new Media(amostra);
+            me.run();
+            System.out.println(amostra.getMedia());
+        }
+        if(mediana.isSelected()){
+           Mediana md=new Mediana(amostra);
+           md.run();
+           System.out.println(amostra.getMediana());
+        }
+        if(max.isSelected()){
+            Max ma=new Max(amostra);
+            ma.run();
+            System.out.println(amostra.getMax());
+        }
+        if(min.isSelected()){
+            Min mi=new Min(amostra);
+            mi.run();
+            System.out.println(amostra.getMin());
+        }
+        //curtose erro de execução para dados impar
+        if(curtose.isSelected()){
+            Curtose cu=new Curtose(amostra);
+            cu.run();
+            System.out.println(amostra.getCurtose());
+        }
+        if(obliquidade.isSelected()){
+            Obliquidade ob=new Obliquidade(amostra);
+            ob.run();
+            System.out.println(amostra.getObliquidade());
+        } 
+        if(variancia.isSelected()){
+            Variancia va=new Variancia(amostra);
+            va.run();
+            System.out.println(amostra.getVariancia());
+        }
+        if(dp.isSelected()){
+            DesvioPadrao desvioPadrao=new DesvioPadrao(amostra);
+            desvioPadrao.run();
+            System.out.println(amostra.getDesvio_padrao());
+        }
+        resultText.setText(amostra.getFa().toString());
     }
     
     @Override
