@@ -140,6 +140,9 @@ public class Amostra {
     public void setDados(ValorAmostra dados) {
         this.dados.add(dados);
     }
+    public void setDadosList(List<ValorAmostra> dados) {
+        this.dados.addAll(dados);
+    }
 
     public List<ValorAmostra> getDados() {
         return dados;

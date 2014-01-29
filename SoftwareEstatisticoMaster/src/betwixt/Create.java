@@ -48,7 +48,7 @@ public class Create {
         File f=new File(Create.class.getResource("/xml").getPath()+"/"+nome_arquivo);
         if(!f.exists())
              f.createNewFile();
-        else
+        else// dar opção de renomear
             f.delete();
        System.out.println(f.getAbsolutePath()); 
        OutputStream bytes = new FileOutputStream(Create.class.getResource("/xml").getPath()+"/"+nome_arquivo, true); // passado "true" para gravar no mesmo arquivo  
