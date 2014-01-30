@@ -46,7 +46,8 @@ public class Mediana implements Runnable{
         double mdi=0;
         int posicao=(aux2.size())/2;
        if((aux2.size())%2!=0){
-           mdi=aux2.get(posicao);
+           int p=(aux2.size()-1)/2;
+           mdi=aux2.get(p);
        }else{
             List<Double> x1=new ArrayList<>();
             List<Double> x2=new ArrayList<>();
@@ -64,7 +65,8 @@ public class Mediana implements Runnable{
         double mds=0;
         int posicao=(aux1.size())/2;
        if((aux1.size())%2!=0){
-           mds=aux1.get(posicao);
+           int p=(aux2.size()-1)/2;
+           mds=aux1.get(p);
        }else{
             List<Double> x1=new ArrayList<>();
             List<Double> x2=new ArrayList<>();
