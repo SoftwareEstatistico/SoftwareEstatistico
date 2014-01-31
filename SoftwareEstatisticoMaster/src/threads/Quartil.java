@@ -29,7 +29,6 @@ public class Quartil implements Runnable{
         quartis.add(esq());
         quartis.add(amostra.getMediana());
         quartis.add(dir());
-      
     }
     public double esq(){
         List<Double> aux=new ArrayList<>();
