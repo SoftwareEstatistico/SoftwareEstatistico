@@ -15,7 +15,17 @@ import model.Amostra;
  */
 public class Mediana implements Runnable{
     private Amostra amostra;
+    private int index1;
+    private int index2;
 
+    public int getIndex1() {
+        return index1;
+    }
+
+    public int getIndex2() {
+        return index2;
+    }
+    
     public Mediana(Amostra amostra) {
         this.amostra = amostra;
     }
@@ -47,7 +57,11 @@ public class Mediana implements Runnable{
             for(int j=0;j>amostra.valores_ordenados_amostra().size();j--){
                 if(j==i){
                     md=amostra.valores_ordenados_amostra().get(i);
+                    index1=j;
+                    index2=i;
                 }else if(j>i){
+                    index1=j;
+                    index2=i;
                     md=(amostra.valores_ordenados_amostra().get(i)+amostra.valores_ordenados_amostra().get(j))/2;
                 }
             }

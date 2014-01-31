@@ -27,18 +27,46 @@ public class Quartil implements Runnable{
     
     @Override
     public void run() {
-        DecimalFormat decimal = new DecimalFormat( "0" );
-        double aux=Math.round(0.25*(amostra.getDados().size()));
-        double q1=amostra.valores_ordenados_amostra().get(Integer.parseInt(decimal.format(aux)));
-        aux=Math.round(0.75*(amostra.getDados().size()));
-        double q3=amostra.valores_ordenados_amostra().get(Integer.parseInt(decimal.format(aux)));
-                
-        double q2=q3-q1;
-        quartis.add(q1);
-        quartis.add(q2);
-        quartis.add(q3);
+//        DecimalFormat decimal = new DecimalFormat( "0" );
+//        double aux=Math.round(0.25*(amostra.getDados().size()));
+//        double q1=amostra.valores_ordenados_amostra().get(Integer.parseInt(decimal.format(aux)));
+//        aux=Math.round(0.75*(amostra.getDados().size()));
+//        double q3=amostra.valores_ordenados_amostra().get(Integer.parseInt(decimal.format(aux)));
+//        double q2=q3-q1;
+        quartis.add(esq());
+        quartis.add(amostra.getMediana());
+        quartis.add(dir());
     }
-
+    public double esq(){
+        List<Double> aux=new ArrayList<>();
+        aux.addAll(amostra.valores_ordenados_amostra().subList(0, mediana.getIndex1()));
+         double md=0.0;
+        int count=0;
+        for(int i=0;i<aux.size();i++){
+            for(int j=0;j>aux.size();j--){
+                if(j==i){
+                    md=aux.get(i);
+                }else if(j>i){
+                    md=(aux.get(i)+aux.get(j))/2;
+                }
+            }
+        }return md;
+    }
+    public double dir(){
+        List<Double> aux=new ArrayList<>();
+        aux.addAll(amostra.valores_ordenados_amostra().subList(mediana.getIndex2(),amostra.valores_ordenados_amostra().size()));
+        double md=0.0;
+        int count=0;
+        for(int i=0;i<aux.size();i++){
+            for(int j=0;j>aux.size();j--){
+                if(j==i){
+                    md=aux.get(i);
+                }else if(j>i){
+                    md=(aux.get(i)+aux.get(j))/2;
+                }
+            }
+        }return md;
+    }
     public List<Double> getQuartis() {
         return quartis;
     }
