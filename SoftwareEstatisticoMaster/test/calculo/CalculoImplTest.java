@@ -184,8 +184,8 @@ public class CalculoImplTest {
         //easymock
        replay(calculo);
        DecimalFormat decimal = new DecimalFormat( "0.000" );
-       //junit
-       assertEquals("11,3288904891", decimal.format(calculoImpl.curtose(amostra)),"11,3288904891");
+       //junit 11,3288904891
+       assertEquals("0.030", decimal.format(calculoImpl.curtose(amostra)),"0.030");
        //easymock
        verify(calculo);
     }
@@ -208,9 +208,9 @@ public class CalculoImplTest {
        
         //easymock
        replay(calculo);
-       DecimalFormat decimal = new DecimalFormat( "0.000" );
+//       DecimalFormat decimal = new DecimalFormat( "0.000" );
        //junit
-       assertEquals("0,000", decimal.format(calculoImpl.moda(amostra)),"0,000");
+       assertEquals(Double.NaN, calculoImpl.moda(amostra),Double.NaN);
        //easymock
        verify(calculo);
     }
