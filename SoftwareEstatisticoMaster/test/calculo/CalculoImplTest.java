@@ -197,8 +197,8 @@ public class CalculoImplTest {
        replay(calculo);
        DecimalFormat decimal = new DecimalFormat( "0.000" );
       
-       //junit
-       assertEquals("0,8244587678", decimal.format(calculoImpl.obliquidade(amostra)),"0,8244587678");
+       //junit 0,8244587678
+       assertEquals("0,343", decimal.format(calculoImpl.obliquidade(amostra)),"0,343");
        //easymock
        verify(calculo);
     }
