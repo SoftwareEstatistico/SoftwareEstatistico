@@ -185,7 +185,7 @@ public class CalculoImplTest {
        replay(calculo);
        DecimalFormat decimal = new DecimalFormat( "0.000" );
        //junit 11,3288904891
-       assertEquals("0.030", decimal.format(calculoImpl.curtose(amostra)),"0.030");
+       assertEquals("0,030", decimal.format(calculoImpl.curtose(amostra)),"0,030");
        //easymock
        verify(calculo);
     }
