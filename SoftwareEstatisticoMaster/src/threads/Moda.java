@@ -4,7 +4,9 @@
  */
 package threads;
 
+import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 import model.Amostra;
 import model.ValorAmostra;
 
@@ -23,11 +25,18 @@ public class Moda implements Runnable{
     }
     @Override
     public void run() {
+        List<Double> dd=new ArrayList<>();
         for(ValorAmostra d: amostra.getDados()){
-            if(Collections.frequency(amostra.getDados(), d.getValor())>maxfreq){
-                amostra.setModa(d.getValor());
-            }
+            dd.add(d.getValor());
         } 
+        for (Double d : dd) {
+            if(Collections.frequency(dd, d)>maxfreq){
+                maxfreq=Collections.frequency(dd, d);
+                amostra.setModa(d);
+            }
+        }
+        
+       
     }
 
     

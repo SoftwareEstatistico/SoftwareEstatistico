@@ -20,6 +20,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.BarChart;
+import javafx.scene.chart.CategoryAxis;
+import javafx.scene.chart.NumberAxis;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ListView;
@@ -30,17 +33,7 @@ import model.FrequenciaAbsoluta1;
 import model.FrequenciaRelativa1;
 import model.ValorAmostra;
 import org.xml.sax.SAXException;
-import threads.Curtose;
-import threads.DesvioPadrao;
-import threads.FrequenciaAbsoluta;
-import threads.FrequenciaRelativa;
-import threads.Max;
-import threads.Media;
-import threads.Mediana;
-import threads.Min;
-import threads.Moda;
-import threads.Obliquidade;
-import threads.Variancia;
+import util.ChartGenerate;
 import util.OpenFile;
 import util.SaveFile;
 
@@ -94,11 +87,34 @@ public class IndexController implements Initializable {
     private CheckBox dp;
     @FXML
     private CheckBox variancia;
-   
+    @FXML
+    private CategoryAxis x;
+    @FXML
+    private NumberAxis y;
     
+    private ObservableList charty=FXCollections.observableArrayList();
+    private ObservableList chartx=FXCollections.observableArrayList();
     private ObservableList dados;
     private List<ValorAmostra> vlrs;
     private List<FrequenciaRelativa1> frs;
+    
+    public XYChart.Series<String,Double> createSeries(List<FrequenciaRelativa1> lfr){
+        XYChart.Series<String,Double> series=new XYChart.Series<String,Double>();
+        for (int i = 0; i < lfr.size(); i++) {
+            XYChart.Data<String,Double> hdata=new XYChart.Data<String, Double>(String.valueOf(lfr.get(i).getKey()),lfr.get(i).getValue());
+            series.getData().add(hdata);
+        }
+        return series;
+    }
+    public XYChart.Series<String,Integer> createSeries2(List<FrequenciaAbsoluta1> lfa){
+        XYChart.Series<String,Integer> series=new XYChart.Series<String,Integer>();
+        for (int i = 0; i < lfa.size(); i++) {
+            XYChart.Data<String,Integer> hdata=new XYChart.Data<String, Integer>(String.valueOf(lfa.get(i).getKey()),lfa.get(i).getValue());
+            series.getData().add(hdata);
+        }
+        return series;
+    }
+    
     @FXML//arrumar
     private void handleAbrirAction(ActionEvent event) throws IOException, SAXException {
         dados.addAll(OpenFile.getInstance().open());
@@ -133,58 +149,25 @@ public class IndexController implements Initializable {
         for (ValorAmostra valorAmostra: vlrs) {
             amostra.setDados(valorAmostra);
         }
+        //curtose e moda estao dando erro
         //para gerar gráfico
-        FrequenciaAbsoluta fa=new FrequenciaAbsoluta(amostra);
-        fa.run();
-        FrequenciaRelativa fr=new FrequenciaRelativa(amostra);
-        fr.run();
-        if(moda.isSelected()){
-            Moda mo=new Moda(amostra);
-            mo.run();
-            System.out.println(amostra.getModa());
-        }
-        if(media.isSelected()){
-            Media me=new Media(amostra);
-            me.run();
-            System.out.println(amostra.getMedia());
-        }
-        if(mediana.isSelected()){
-           Mediana md=new Mediana(amostra);
-           md.run();
-           System.out.println(amostra.getMediana());
-        }
-        if(max.isSelected()){
-            Max ma=new Max(amostra);
-            ma.run();
-            System.out.println(amostra.getMax());
-        }
-        if(min.isSelected()){
-            Min mi=new Min(amostra);
-            mi.run();
-            System.out.println(amostra.getMin());
-        }
-        //curtose erro de execução para dados impar
-        if(curtose.isSelected()){
-            Curtose cu=new Curtose(amostra);
-            cu.run();
-            System.out.println(amostra.getCurtose());
-        }
-        if(obliquidade.isSelected()){
-            Obliquidade ob=new Obliquidade(amostra);
-            ob.run();
-            System.out.println(amostra.getObliquidade());
-        } 
-        if(variancia.isSelected()){
-            Variancia va=new Variancia(amostra);
-            va.run();
-            System.out.println(amostra.getVariancia());
-        }
-        if(dp.isSelected()){
-            DesvioPadrao desvioPadrao=new DesvioPadrao(amostra);
-            desvioPadrao.run();
-            System.out.println(amostra.getDesvio_padrao());
-        }
-        resultText.setText(amostra.getFa().toString());
+        ChartGenerate.getInstance().stringstatica(amostra);
+        ChartGenerate.getInstance().stringscurtose(curtose.isSelected());
+        ChartGenerate.getInstance().stringsdesviopadrao(dp.isSelected());
+        ChartGenerate.getInstance().stringsmax(max.isSelected());
+        ChartGenerate.getInstance().stringsmedia(media.isSelected());
+        ChartGenerate.getInstance().stringsmediana(mediana.isSelected());
+        ChartGenerate.getInstance().stringsmin(min.isSelected());
+        ChartGenerate.getInstance().stringsmoda(moda.isSelected());
+        ChartGenerate.getInstance().stringsobliquidade(obliquidade.isSelected());
+        resultText.setText(ChartGenerate.getInstance().getstrings());
+      
+        x.setLabel("Valor");
+        y.setLabel("Frequência");
+        barChart.setTitle("Histograma");
+        XYChart.Series<String,Double> series=createSeries(amostra.getFr());
+        XYChart.Series<String,Integer> series2=createSeries2(amostra.getFa());
+        barChart.getData().add(series2);
     }
     
     @Override
