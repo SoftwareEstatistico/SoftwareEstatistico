@@ -4,9 +4,6 @@
  */
 package threads;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 import model.Amostra;
 
 /**
@@ -48,24 +45,48 @@ public class Mediana implements Runnable{
 //            md=(n2+n1)/2;
 //            amostra.setMediana(md);
 //       }
-        amostra.setMediana(mediana());
+        amostra.setMediana(md());
     }
-    public double mediana(){
+    public double md(){
         double md=0.0;
-        int count=0;
-        for(int i=0;i<amostra.valores_ordenados_amostra().size();i++){
-            for(int j=0;j>amostra.valores_ordenados_amostra().size();j--){
-                if(j==i){
+        System.out.println("entra1");
+        int i=0;
+        int j=amostra.valores_ordenados_amostra().size();
+        while(i!=amostra.valores_ordenados_amostra().size()||j!=0){
+            i++;
+            j--;
+             if(j==i){
                     md=amostra.valores_ordenados_amostra().get(i);
                     index1=j;
                     index2=i;
+                    System.out.println(md);
                 }else if(j>i){
                     index1=j;
                     index2=i;
                     md=(amostra.valores_ordenados_amostra().get(i)+amostra.valores_ordenados_amostra().get(j))/2;
+                    System.out.println(md);
                 }
-            }
         }return md;
+//        for(int i=0 ;i<amostra.valores_ordenados_amostra().size();i++){
+//            System.out.println("entra2");
+//            for(int j=amostra.valores_ordenados_amostra().size();j>0;j--){
+//                System.out.println("entra3");
+//                System.out.println("j"+j);
+//                System.out.println("i"+i);
+//                if(j==i){
+//                    md=amostra.valores_ordenados_amostra().get(i);
+//                    index1=j;
+//                    index2=i;
+//                    System.out.println(md);
+//                }else if(j>i){
+//                    index1=j;
+//                    index2=i;
+//                    md=(amostra.valores_ordenados_amostra().get(i)+amostra.valores_ordenados_amostra().get(j))/2;
+//                    System.out.println(md);
+//                }
+//            }
+//        }
+            
     }
 //    //mediana inferior
 //    public double q3(){
