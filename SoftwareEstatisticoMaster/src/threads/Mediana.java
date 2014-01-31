@@ -31,20 +31,6 @@ public class Mediana implements Runnable{
 
     @Override
     public void run() {
-//       int posicao=(amostra.getDados().size())/2;
-//       if((amostra.getDados().size())%2!=0){
-//           amostra.setMediana(amostra.getDados().get(posicao).getValor());
-//       }else{
-////            List<Double> aux1=new ArrayList<>();
-////            List<Double> aux2=new ArrayList<>();
-//            aux1.addAll(amostra.valores_ordenados_amostra().subList(0, posicao));
-//            aux2.addAll(amostra.valores_ordenados_amostra().subList(posicao,amostra.getDados().size()));
-//            double md=0;
-//            double n1=Collections.max(aux1);
-//            double n2=Collections.min(aux2);
-//            md=(n2+n1)/2;
-//            amostra.setMediana(md);
-//       }
         amostra.setMediana(md());
     }
     public double md(){
@@ -60,6 +46,7 @@ public class Mediana implements Runnable{
                 }else if(j<i){
                     index1=j;
                     index2=i;
+                    System.out.println(index1);
                     md=(amostra.valores_ordenados_amostra().get(i)+amostra.valores_ordenados_amostra().get(j))/2;
                     return md;
                 }
