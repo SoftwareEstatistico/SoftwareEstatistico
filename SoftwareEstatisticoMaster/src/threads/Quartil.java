@@ -27,12 +27,6 @@ public class Quartil implements Runnable{
     
     @Override
     public void run() {
-//        DecimalFormat decimal = new DecimalFormat( "0" );
-//        double aux=Math.round(0.25*(amostra.getDados().size()));
-//        double q1=amostra.valores_ordenados_amostra().get(Integer.parseInt(decimal.format(aux)));
-//        aux=Math.round(0.75*(amostra.getDados().size()));
-//        double q3=amostra.valores_ordenados_amostra().get(Integer.parseInt(decimal.format(aux)));
-//        double q2=q3-q1;
         quartis.add(esq());
         quartis.add(amostra.getMediana());
         quartis.add(dir());

@@ -4,8 +4,6 @@
  */
 package threads;
 
-import java.util.ArrayList;
-import java.util.List;
 import model.Amostra;
 
 
@@ -18,6 +16,7 @@ public class Curtose implements Runnable{
     private Amostra amostra;
     private Soma soma;
     private Mediana mediana;
+    private Quartil quartil;
     
     
     public Curtose(Amostra amostra) {
@@ -26,13 +25,15 @@ public class Curtose implements Runnable{
         this.mediana=new Mediana(amostra);
         mediana.run();
         soma.run();
+        quartil=new Quartil(amostra);
+        quartil.run();
     }
     
             
     @Override
     public void run() {
         double result=0;
-        result=(mediana.q3()-mediana.q1())/(2*(percent_90()-percent_10()));
+        result=(quartil.getQuartis().get(2)-quartil.getQuartis().get(0))/(2*(percent_90()-percent_10()));
         amostra.setCurtose(result);
 //        amostra.setCurtose((quartil.getQuartis().get(0)-quartil.getQuartis().get(2))/(2*(decil.getDecil().get(1)-decil.getDecil().get(0))));
     }
