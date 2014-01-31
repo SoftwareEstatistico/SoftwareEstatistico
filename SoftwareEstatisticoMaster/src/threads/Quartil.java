@@ -30,9 +30,7 @@ public class Quartil implements Runnable{
         quartis.add(esq());
         quartis.add(amostra.getMediana());
         quartis.add(dir());
-        System.out.println(quartis.get(0));
-        System.out.println(quartis.get(1));
-        System.out.println(quartis.get(2));
+      
     }
     public double esq(){
         List<Double> aux=new ArrayList<>();
@@ -43,13 +41,11 @@ public class Quartil implements Runnable{
         double md=0.0;
         int i=0;
         int j=aux.size()-1;
-        System.out.println(aux);
         if(aux.size()==1){
             md=aux.get(0);
             return md;
         }else if(aux.size()==2){
             md=(aux.get(0)+aux.get(1))/2;
-            System.out.println("entra"+md);
             return md;
         }else{
             while(i!=(aux.size()-1)||j!=0||j==i||j>i){
