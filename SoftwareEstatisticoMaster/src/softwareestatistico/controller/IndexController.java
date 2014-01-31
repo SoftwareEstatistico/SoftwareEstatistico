@@ -6,6 +6,12 @@ calcular estatísticas básicas para cada atributo
 apresentar: histograma, média, mediana, desvio padrão, variância, moda, frequência absoluta e relativa, max, min, curtorse e obliquidade
 gravar resultados em um arquivo xml
 gerar/exportar gráficos com javafx
+* 
+* fazer shell cli
+* easymock
+* histograma
+* salvar xml somente quando gerar resultados
+* pegar resultados quando abrir arquivo
  */
 package softwareestatistico.controller;
 
@@ -101,8 +107,8 @@ public class IndexController implements Initializable {
     private List<ValorAmostra> vlrs;
     private List<FrequenciaRelativa1> frs;
     //slf4j
-     Logger logger = LoggerFactory.getLogger(IndexController.class);
-    
+    Logger logger = LoggerFactory.getLogger(IndexController.class);
+    //Falta salvar o xml 
     public XYChart.Series<String,Double> createSeries(List<FrequenciaRelativa1> lfr){
         logger.info("createSeries");
         XYChart.Series<String,Double> series=new XYChart.Series<String,Double>();

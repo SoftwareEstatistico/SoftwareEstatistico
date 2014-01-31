@@ -45,6 +45,7 @@ public class Create {
         
         System.out.println(outputWriter.toString());
         
+//        File f=new File(Create.class.getResource("/xml").getPath()+"/"+nome_arquivo);
         File f=new File(Create.class.getResource("/xml").getPath()+"/"+nome_arquivo);
         if(!f.exists())
              f.createNewFile();
