@@ -6,10 +6,12 @@ package jcsv;
 
 import com.googlecode.jcsv.reader.CSVReader;
 import com.googlecode.jcsv.reader.internal.CSVReaderBuilder;
+import com.googlecode.jcsv.reader.internal.CSVReaderImpl;
 import com.googlecode.jcsv.writer.CSVWriter;
 import com.googlecode.jcsv.writer.internal.CSVWriterBuilder;
-import com.sun.javaws.Main;
+import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -25,11 +27,11 @@ import model.ValorAmostra;
 public class CsvController {
     
     private ValorAmostra valorAmostra;
-    //not working
-    public  List<ValorAmostra> read(String arqname) throws FileNotFoundException, IOException{
-        Reader csvFile = new InputStreamReader(Main.class.getResourceAsStream("/"+arqname));
-
-        CSVReader<ValorAmostra> valorReader = new CSVReaderBuilder<ValorAmostra>(csvFile).entryParser(new ValorAmostraParser()).build();
+  
+    public  List<ValorAmostra> read(File file) throws FileNotFoundException, IOException{
+        Reader in=new FileReader(file);
+        
+        CSVReader<ValorAmostra> valorReader = new CSVReaderBuilder<ValorAmostra>(in).entryParser(new ValorAmostraParser()).build();
         List<ValorAmostra> valores = valorReader.readAll();
         return valores;
     }

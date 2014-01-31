@@ -42,10 +42,11 @@ public class OpenFile {
         filechoose.setTitle("Abrir Arquivo");
         file=filechoose.showOpenDialog(stage);
         CsvController csv=new CsvController();
+        SalvarCSV ler=new SalvarCSV();
         if(file.getName().endsWith(".xml")){
            return Read.leitura(file).getDados();
         }else if(file.getName().endsWith(".csv")){
-           return csv.read(file.getPath());
+           return csv.read(file);
         }
         return null;
     }

@@ -56,8 +56,8 @@ public class CsvControllerTest {
         v3.setValor(13.8);
         v4.setValor(15.8);
         List<ValorAmostra> vlrs = new ArrayList<>();
-        List result = instance.read(arqname);
-        assertEquals(vlrs, result);
+//        List result = instance.read(arqname);
+//        assertEquals(vlrs, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }

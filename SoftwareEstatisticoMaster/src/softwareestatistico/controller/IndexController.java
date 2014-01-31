@@ -34,6 +34,7 @@ import model.FrequenciaRelativa1;
 import model.ValorAmostra;
 import org.xml.sax.SAXException;
 import util.ChartGenerate;
+import util.Open;
 import util.OpenFile;
 import util.SaveFile;
 
@@ -117,7 +118,10 @@ public class IndexController implements Initializable {
     
     @FXML//arrumar
     private void handleAbrirAction(ActionEvent event) throws IOException, SAXException {
-        dados.addAll(OpenFile.getInstance().open());
+        Open open=new Open(OpenFile.getInstance().open(),dados);
+        open.run();
+//        dados.addAll();
+        
     }
     
     @FXML
