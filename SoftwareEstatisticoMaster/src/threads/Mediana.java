@@ -52,8 +52,6 @@ public class Mediana implements Runnable{
         int i=0;
         int j=amostra.valores_ordenados_amostra().size();
         while(i!=amostra.valores_ordenados_amostra().size()||j!=0){
-            i++;
-            j--;
              if(j==i){
                     md=amostra.valores_ordenados_amostra().get(i);
                     index1=j;
@@ -66,6 +64,8 @@ public class Mediana implements Runnable{
                     md=(amostra.valores_ordenados_amostra().get(i)+amostra.valores_ordenados_amostra().get(j))/2;
                     return md;
                 }
+            i++;
+            j--;
         }return md;
 //        for(int i=0 ;i<amostra.valores_ordenados_amostra().size();i++){
 //            System.out.println("entra2");
