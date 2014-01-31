@@ -24,7 +24,7 @@ public class Open implements Runnable{
     @Override
     public void run() {
         for (ValorAmostra valorAmostra : vrls) {
-            ol.add(vrls);
+            ol.addAll(vrls);
         }
     }
     
