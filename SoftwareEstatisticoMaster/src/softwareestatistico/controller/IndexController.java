@@ -7,9 +7,9 @@ apresentar: histograma, média, mediana, desvio padrão, variância, moda, frequ
 gravar resultados em um arquivo xml
 gerar/exportar gráficos com javafx
 * 
-* fazer shell cli
+* fazer shell 
 * easymock
-* histograma
+* 
 * salvar xml somente quando gerar resultados
 * pegar resultados quando abrir arquivo
 * formatar saidas

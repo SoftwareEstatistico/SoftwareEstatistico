@@ -44,7 +44,5 @@ public class CommandLineParametersTest {
         System.out.println("cmd");
         String[] args = {"12.3","12.3","12.3","14.5","12.3","12"};
         CommandLineParameters.main(args);
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
     }
 }

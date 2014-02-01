@@ -5,6 +5,8 @@
 package util;
 
 import betwixt.Create;
+import calculo.Calculo;
+import calculo.CalculoImpl;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -13,6 +15,8 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import jcsv.CsvController;
 import model.Amostra;
+import threads.FrequenciaAbsoluta;
+import threads.FrequenciaRelativa;
 
 /**
  *
@@ -56,17 +60,7 @@ public class SaveFile {
                 if(f.getName().endsWith(".xml"))
                     change=f.getName().replace(".xml", ".csv");
                 csv.write(change, amostra.getDados());
-                
-                //save xml dados + amostra resultados
-//                Calculo calculo=new CalculoImpl();
-//                calculo.amplitude(amostra);
-//                calculo.desviopadrao(amostra);
-//                calculo.max(amostra);
-//                calculo.media(amostra);
-//                calculo.mediana(amostra);
-//                calculo.min(amostra);
-//                calculo.variancia(amostra);
-                
+                resultados(amostra);
                 //save xml
                 if(f.getName().endsWith(".csv"))
                     change=f.getName().replace(".csv", ".xml");
@@ -74,5 +68,23 @@ public class SaveFile {
             }
         }catch(Exception e){
         }
+    }
+    public void resultados(Amostra amostra){
+         //save xml dados + amostra resultados
+                Calculo calculo=new CalculoImpl();
+                calculo.amplitude(amostra);
+                calculo.desviopadrao(amostra);
+                calculo.max(amostra);
+                calculo.media(amostra);
+                calculo.mediana(amostra);
+                calculo.min(amostra);
+                calculo.variancia(amostra);
+                calculo.obliquidade(amostra);
+                calculo.curtose(amostra);
+                calculo.moda(amostra);
+                FrequenciaAbsoluta fa=new FrequenciaAbsoluta(amostra);
+                fa.run();
+                FrequenciaRelativa fr=new FrequenciaRelativa(amostra);
+                fr.run();
     }
 }

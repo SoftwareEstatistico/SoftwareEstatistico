@@ -9,10 +9,12 @@ import java.beans.IntrospectionException;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.StringWriter;
+import java.io.Writer;
 import org.apache.commons.betwixt.io.BeanWriter;
 import org.xml.sax.SAXException;
 
@@ -44,15 +46,13 @@ public class Create {
         beanWriter.write("amostra", amostra);
         
         System.out.println(outputWriter.toString());
-        
-//        File f=new File(Create.class.getResource("/xml").getPath()+"/"+nome_arquivo);
-        File f=new File(Create.class.getResource("/xml").getPath()+"/"+nome_arquivo);
+        File f=new File(nome_arquivo);
         if(!f.exists())
              f.createNewFile();
         else// dar opção de renomear
             f.delete();
        System.out.println(f.getAbsolutePath()); 
-       OutputStream bytes = new FileOutputStream(Create.class.getResource("/xml").getPath()+"/"+nome_arquivo, true); // passado "true" para gravar no mesmo arquivo  
+       OutputStream bytes = new FileOutputStream(f.getAbsolutePath(), true); // passado "true" para gravar no mesmo arquivo  
        OutputStreamWriter chars = new OutputStreamWriter(bytes);  
        BufferedWriter strings = new BufferedWriter(chars);  
   
