@@ -1,0 +1,67 @@
+<?xml version='1.0' ?>  <amostra>
+    <amplitude>4.200000000000001</amplitude>
+    <curtose>0.0</curtose>
+    <dados>
+      <ValorAmostra>
+        <date>Fri Jan 31 21:09:38 BRST 2014</date>
+        <valor>12.9</valor>
+      </ValorAmostra>
+      <ValorAmostra>
+        <date>Fri Jan 31 21:09:38 BRST 2014</date>
+        <valor>11.6</valor>
+      </ValorAmostra>
+      <ValorAmostra>
+        <date>Fri Jan 31 21:09:38 BRST 2014</date>
+        <valor>13.8</valor>
+      </ValorAmostra>
+      <ValorAmostra>
+        <date>Fri Jan 31 21:09:38 BRST 2014</date>
+        <valor>15.8</valor>
+      </ValorAmostra>
+    </dados>
+    <desvio_padrao>1.5286840746210453</desvio_padrao>
+    <fa>
+      <FrequenciaAbsoluta1>
+        <key>12.9</key>
+        <value>1</value>
+      </FrequenciaAbsoluta1>
+      <FrequenciaAbsoluta1>
+        <key>11.6</key>
+        <value>1</value>
+      </FrequenciaAbsoluta1>
+      <FrequenciaAbsoluta1>
+        <key>13.8</key>
+        <value>1</value>
+      </FrequenciaAbsoluta1>
+      <FrequenciaAbsoluta1>
+        <key>15.8</key>
+        <value>1</value>
+      </FrequenciaAbsoluta1>
+    </fa>
+    <fr>
+      <FrequenciaRelativa1>
+        <key>12.9</key>
+        <value>1.0</value>
+      </FrequenciaRelativa1>
+      <FrequenciaRelativa1>
+        <key>11.6</key>
+        <value>1.0</value>
+      </FrequenciaRelativa1>
+      <FrequenciaRelativa1>
+        <key>13.8</key>
+        <value>1.0</value>
+      </FrequenciaRelativa1>
+      <FrequenciaRelativa1>
+        <key>15.8</key>
+        <value>1.0</value>
+      </FrequenciaRelativa1>
+    </fr>
+    <max>15.8</max>
+    <media>13.524999999999999</media>
+    <mediana>13.350000000000001</mediana>
+    <min>11.6</min>
+    <moda>0.0</moda>
+    <nome/>
+    <obliquidade>0.34343263511143524</obliquidade>
+    <variancia>2.3368750000000014</variancia>
+  </amostra>
