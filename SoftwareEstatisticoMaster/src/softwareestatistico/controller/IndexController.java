@@ -155,6 +155,9 @@ public class IndexController implements Initializable {
             vlr.setValor(Double.parseDouble(aux));
      //       vlrs.add(vlr);
             dados.add(vlr);
+           }else{
+                logger.error("NaN digitado em TextValue");
+                Dialogs.showErrorDialog(new Stage(), "Permitido apenas números");
            }
        }catch(Exception e){
            logger.error(e.getMessage());
@@ -222,9 +225,6 @@ public class IndexController implements Initializable {
             aux=verify.replace(",", ".");
         }
         else if(Double.isNaN(Double.parseDouble(verify))){
-            Stage s=new Stage();
-            logger.error("NaN digitado em TextValue");
-            Dialogs.showErrorDialog(s, "Permitido apenas números");
             textValor.clear();
             aux="";
         }
