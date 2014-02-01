@@ -41,13 +41,13 @@ public class ChartGenerate implements IChartGenerate{
         FrequenciaRelativa fr=new FrequenciaRelativa(amostra);
         fr.run();
         sb.append("RESULTADO DA AMOSTRA:");
-        sb.append("/n");
+        sb.append("\n");
         sb.append("Frequência Absoluta:");
         sb.append(amostra.getFa());
-        sb.append("/n");
+        sb.append("\n");
         sb.append("Frequência Relativa:");
         sb.append(amostra.getFr());
-        sb.append("/n");
+        sb.append("\n");
         this.amostra=amostra;
         System.out.println("Entra"+amostra);
     }
@@ -59,7 +59,7 @@ public class ChartGenerate implements IChartGenerate{
             ma.run();
             sb.append("Max:");
             sb.append(amostra.getMax());
-            sb.append("/n");
+            sb.append("\n");
          }
     }
 
@@ -70,7 +70,7 @@ public class ChartGenerate implements IChartGenerate{
             mi.run();
             sb.append("Min:");
             sb.append(amostra.getMin());
-            sb.append("/n");    
+            sb.append("\n");    
          }
     
     }
@@ -82,7 +82,7 @@ public class ChartGenerate implements IChartGenerate{
             me.run();
             sb.append("Media:");
             sb.append(amostra.getMedia());
-            sb.append("/n");
+            sb.append("\n");
          }
     }
 
@@ -93,7 +93,7 @@ public class ChartGenerate implements IChartGenerate{
             md.run();
             sb.append("Mediana:");
             sb.append(amostra.getMediana());
-            sb.append("/n");
+            sb.append("\n");
          }
     }
 
@@ -104,7 +104,7 @@ public class ChartGenerate implements IChartGenerate{
             mo.run();
             sb.append("Moda:");
             sb.append(amostra.getModa());
-            sb.append("/n");
+            sb.append("\n");
          }
     }
 
@@ -115,7 +115,7 @@ public class ChartGenerate implements IChartGenerate{
             cu.run();
             sb.append("Curtose:");
             sb.append(amostra.getCurtose());
-            sb.append("/n");
+            sb.append("\n");
          }
     }
 
@@ -126,7 +126,7 @@ public class ChartGenerate implements IChartGenerate{
             ob.run();
             sb.append("Obliquidade:");
             sb.append(amostra.getObliquidade());
-            sb.append("/n");
+            sb.append("\n");
          }
     }
 
@@ -137,7 +137,7 @@ public class ChartGenerate implements IChartGenerate{
          desvioPadrao.run();
          sb.append("Desvio Padrão:");
          sb.append(amostra.getDesvio_padrao());
-         sb.append("/n");
+         sb.append("\n");
         }
     }
 
