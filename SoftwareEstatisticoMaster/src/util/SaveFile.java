@@ -57,13 +57,13 @@ public class SaveFile {
                 //save csv dados
                 CsvController csv=new CsvController();
                 String change=f.getName();
-                if(f.getName().endsWith(".xml"))
-                    change=f.getName().replace(".xml", ".csv");
+                if(change.endsWith(".xml"))
+                    change=change.replace(".xml", ".csv");
                 csv.write(change, amostra.getDados());
                 resultados(amostra);
                 //save xml
-                if(f.getName().endsWith(".csv"))
-                    change=f.getName().replace(".csv", ".xml");
+                if(change.endsWith(".csv"))
+                    change=change.replace(".csv", ".xml");
                 Create.createxml(change, amostra);
             }
         }catch(Exception e){
