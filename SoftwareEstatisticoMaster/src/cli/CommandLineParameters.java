@@ -25,11 +25,6 @@ public class CommandLineParameters {
 
          options.addOption("c", "calculo",true,"resultados de media, mediana, maximo, minimo, moda, desvio_padrao,variancia,curtose e obliquidade.");
          CommandLine cl;
-//         args[0]="12.6";
-//         args[0]="12.6";
-//         args[0]="13.7";
-//         args[0]="10.5";
-//         args[0]="10.5";
          cl=parser.parse(options, args);
          if(options.hasOption("-c")){
              Amostra amostra=new Amostra();
