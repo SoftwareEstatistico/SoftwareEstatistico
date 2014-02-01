@@ -32,7 +32,6 @@ public class Moda implements Runnable{
         } 
         for (Double d : dd) {
             if(Collections.frequency(dd, d)>maxfreq){
-                System.out.println(maxfreq);
                 mo=d;
                 maxfreq=Collections.frequency(dd, d);
             }
