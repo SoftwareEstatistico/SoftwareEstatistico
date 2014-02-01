@@ -24,13 +24,10 @@ public class FrequenciaAbsoluta implements Runnable{
     @Override
     public void run() {
         for(Double d:amostra.valores_ordenados_amostra()){
-            FrequenciaAbsoluta1 fa=new FrequenciaAbsoluta1();
-            fa.setKey(d);
-            fa.setValue(Collections.frequency(amostra.valores_ordenados_amostra(), d));
-              amostra.setFa(fa);
-        }
-        for (ValorAmostra dado : amostra.getDados()) {
-              
+                FrequenciaAbsoluta1 fa=new FrequenciaAbsoluta1();
+                fa.setKey(d);
+                fa.setValue(Collections.frequency(amostra.valores_ordenados_amostra(), d));
+                amostra.setFa(fa);
         }
       
     }
