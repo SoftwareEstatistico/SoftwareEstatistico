@@ -32,9 +32,11 @@ import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.Dialogs;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextArea;
+import javafx.stage.Stage;
 import model.Amostra;
 import model.FrequenciaAbsoluta1;
 import model.FrequenciaRelativa1;
@@ -146,10 +148,14 @@ public class IndexController implements Initializable {
     private void handleAddAction(ActionEvent event) throws IOException, SAXException {
        logger.info("handleAddAction");  
        try{ 
-       ValorAmostra vlr=new ValorAmostra();
-       vlr.setValor(Double.parseDouble(textValor.getText()));
-//       vlrs.add(vlr);
-       dados.add(vlr);
+           makedouble(textValor.getText());
+           if(textValor.equals("")){
+            ValorAmostra vlr=new ValorAmostra();
+            
+            vlr.setValor(Double.parseDouble(textValor.getText()));
+     //       vlrs.add(vlr);
+            dados.add(vlr);
+           }
        }catch(Exception e){
            logger.error(e.getMessage());
        }
@@ -210,7 +216,15 @@ public class IndexController implements Initializable {
             logger.error(e.getMessage());
         }
     }
-    
+    public void makedouble(String verify){
+        if(verify.contains(",")){
+            textValor.setText(textValor.getText().replace(",", "."));
+        }
+        if(Double.isNaN(Double.parseDouble(verify))){
+            Dialogs.showErrorDialog(new Stage(), "Permitido apenas números");
+            textValor.clear();
+        }
+    }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         vlrs=new ArrayList<>();
