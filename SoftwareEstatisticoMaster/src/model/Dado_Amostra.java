@@ -5,7 +5,7 @@
 package model;
 
 /**
- *
+ *Não uso mais
  * @author Ana
  */
 public class Dado_Amostra {

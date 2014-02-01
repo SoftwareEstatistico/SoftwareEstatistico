@@ -4,6 +4,9 @@
  */
 package model;
 
+import java.util.HashSet;
+import javax.naming.ldap.HasControls;
+
 /**
  *
  * @author Ana
@@ -30,7 +33,8 @@ public class FrequenciaRelativa1 {
 
     @Override
     public String toString() {
-        return "FrequenciaRelativa1{" + "key=" + key + ", value=" + value + '}';
+        return "Frequencia Relativa Para Todos os números da Amostra:"
+                + " \n " + "key=" + key + " \n  value=" + value + '\n';
     }
     
 }

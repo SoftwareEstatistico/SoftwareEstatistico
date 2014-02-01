@@ -43,7 +43,7 @@ public class ValorAmostra  {
 
     @Override
     public String toString() {
-        return "ValorAmostra{" + "valor=" + valor + ", date=" + date + '}';
+        return  valor + "-" + date;
     }
     
 }

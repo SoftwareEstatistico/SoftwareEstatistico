@@ -30,7 +30,8 @@ public class FrequenciaAbsoluta1 {
 
     @Override
     public String toString() {
-        return "FrequenciaAbsoluta1{" + "key=" + key + ", value=" + value + '}';
+        return "Frequência Absoluta Para Todos os Dados da Amostra: "
+                + "\n" + "key=" + key + "\n value=" + value + '\n';
     }
     
 }
