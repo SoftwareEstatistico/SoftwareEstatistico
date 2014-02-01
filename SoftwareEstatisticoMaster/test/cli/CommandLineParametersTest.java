@@ -42,7 +42,7 @@ public class CommandLineParametersTest {
     @Test
     public void testMain() throws Exception {
         System.out.println("cmd");
-        String[] args = {"12.3","14.5","14.5","14.5","12.3","12"};
+        String[] args = {"12.3","12.3","12.3","14.5","12.3","12"};
         CommandLineParameters.main(args);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");

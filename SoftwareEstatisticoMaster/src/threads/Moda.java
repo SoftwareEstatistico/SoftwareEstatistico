@@ -25,23 +25,20 @@ public class Moda implements Runnable{
     }
     @Override
     public void run() {
+        double mo=Double.NaN;
         List<Double> dd=new ArrayList<>();
         for(ValorAmostra d: amostra.getDados()){
             dd.add(d.getValor());
         } 
         for (Double d : dd) {
             if(Collections.frequency(dd, d)>maxfreq){
-                maxfreq=Collections.frequency(dd, d);
                 System.out.println(maxfreq);
-                amostra.setModa(d);
+                mo=d;
+                maxfreq=Collections.frequency(dd, d);
             }
-            else if(Collections.frequency(dd, d)==maxfreq){
-                amostra.setModa(Double.NaN);
-            }
-           
         }
-         
-       
+        amostra.setModa(mo);
+        
     }
 
     
