@@ -18,4 +18,7 @@ public interface Calculo {
     public Double amplitude(Amostra amostra);
     public Double max(Amostra amostra);
     public Double min(Amostra amostra);
+    public Double moda(Amostra amostra);
+    public Double curtose(Amostra amostra);
+    public Double obliquidade(Amostra amostra);
 }

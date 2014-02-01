@@ -41,6 +41,7 @@ public class CommandLineParameters {
              calculo.media(amostra);
              calculo.mediana(amostra);
              calculo.variancia(amostra);
+             calculo.moda(amostra);
              System.out.println("Resultado:");
              System.out.println("Max:"+amostra.getMax());
              System.out.println("Min:"+amostra.getMin());

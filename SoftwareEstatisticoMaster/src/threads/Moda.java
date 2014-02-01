@@ -26,7 +26,6 @@ public class Moda implements Runnable{
     @Override
     public void run() {
         List<Double> dd=new ArrayList<>();
-        double mo=0.0;
         for(ValorAmostra d: amostra.getDados()){
             dd.add(d.getValor());
         } 
