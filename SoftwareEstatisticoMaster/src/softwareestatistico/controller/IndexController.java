@@ -152,7 +152,7 @@ public class IndexController implements Initializable {
            if(!aux.equals("")){
             ValorAmostra vlr=new ValorAmostra();
             
-            vlr.setValor(Double.parseDouble(textValor.getText()));
+            vlr.setValor(Double.parseDouble(aux));
      //       vlrs.add(vlr);
             dados.add(vlr);
            }
@@ -221,8 +221,10 @@ public class IndexController implements Initializable {
         if(verify.contains(",")){
             aux=verify.replace(",", ".");
         }
-        if(Double.isNaN(Double.parseDouble(verify))){
-            Dialogs.showErrorDialog(new Stage(), "Permitido apenas números");
+        else if(Double.isNaN(Double.parseDouble(verify))){
+            Stage s=new Stage();
+            logger.error("NaN digitado em TextValue");
+            Dialogs.showErrorDialog(s, "Permitido apenas números");
             textValor.clear();
             aux="";
         }
