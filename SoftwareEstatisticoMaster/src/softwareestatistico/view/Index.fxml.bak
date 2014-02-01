@@ -19,21 +19,21 @@
               <children>
                 <BorderPane prefHeight="371.0" prefWidth="595.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                   <left>
-                    <ListView fx:id="lista_amostra" prefHeight="311.0" prefWidth="378.0" />
+                    <ListView prefHeight="311.0" prefWidth="378.0" fx:id="lista_amostra"  />
                   </left>
                   <right>
                     <GridPane prefHeight="311.0" prefWidth="195.0">
                       <children>
-                        <CheckBox fx:id="moda" mnemonicParsing="false" text="Moda" GridPane.columnIndex="0" GridPane.rowIndex="4" />
-                        <CheckBox fx:id="min" mnemonicParsing="false" text="Min" GridPane.columnIndex="0" GridPane.rowIndex="3" />
-                        <CheckBox fx:id="variancia" mnemonicParsing="false" text="Variancia" GridPane.columnIndex="0" GridPane.rowIndex="8" />
-                        <CheckBox fx:id="curtose" mnemonicParsing="false" text="Curtose" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                        <CheckBox fx:id="moda"  mnemonicParsing="false" text="Moda" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+                        <CheckBox fx:id="min"  mnemonicParsing="false" text="Min" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                        <CheckBox fx:id="variancia"  mnemonicParsing="false" text="Variancia" GridPane.columnIndex="0" GridPane.rowIndex="8" />
+                        <CheckBox fx:id="curtose"  mnemonicParsing="false" text="Curtose" GridPane.columnIndex="0" GridPane.rowIndex="0" />
                         <CheckBox fx:id="mediana" mnemonicParsing="false" text="Mediana" GridPane.columnIndex="0" GridPane.rowIndex="6" />
-                        <CheckBox fx:id="dp" mnemonicParsing="false" text="desvio padrão" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-                        <CheckBox fx:id="max" mnemonicParsing="false" text="Max" GridPane.columnIndex="0" GridPane.rowIndex="2" />
-                        <CheckBox fx:id="obliquidade" mnemonicParsing="false" text="Obliquidade" GridPane.columnIndex="0" GridPane.rowIndex="7" />
-                        <CheckBox fx:id="media" mnemonicParsing="false" text="Media" GridPane.columnIndex="0" GridPane.rowIndex="5" />
-                        <Button fx:id="gerar" mnemonicParsing="false" onAction="#handleChartAction" prefWidth="195.0" text="Gerar Resultado" GridPane.columnIndex="0" GridPane.rowIndex="9" />
+                        <CheckBox fx:id="dp"  mnemonicParsing="false" text="desvio padrão" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                        <CheckBox fx:id="max"  mnemonicParsing="false" text="Max" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                        <CheckBox fx:id="obliquidade"  mnemonicParsing="false" text="Obliquidade" GridPane.columnIndex="0" GridPane.rowIndex="7" />
+                        <CheckBox fx:id="media"  mnemonicParsing="false" text="Media" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+                        <Button fx:id="gerar" onAction="#handleChartAction"  mnemonicParsing="false" prefWidth="195.0" text="Gerar Resultado" GridPane.columnIndex="0" GridPane.rowIndex="9" />
                       </children>
                       <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -56,14 +56,14 @@
                     <GridPane>
                       <children>
                         <Button fx:id="abrir" mnemonicParsing="false" onAction="#handleAbrirAction" prefHeight="22.0" prefWidth="87.0" text="..." GridPane.columnIndex="1" GridPane.rowIndex="0" />
-                        <TextField fx:id="textFile" editable="false" prefWidth="466.0" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                        <TextField fx:id="textFile" prefWidth="466.0" GridPane.columnIndex="0" GridPane.rowIndex="0" />
                         <Button fx:id="salvar" mnemonicParsing="false" onAction="#handleSalvarAction" prefWidth="120.0" text="Salvar" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                         <FlowPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="1">
                           <children>
                             <Label text="Valor:" />
                             <TextField fx:id="textValor" prefWidth="200.0" promptText="Somente números" />
-                            <Button fx:id="add" mnemonicParsing="false" onAction="#handleAddAction" text="Add" />
-                            <Button fx:id="delete" mnemonicParsing="false" onAction="#handleDelAction" text="Delete" />
+                            <Button fx:id="add" mnemonicParsing="false" text="Add" onAction="#handleAddAction"  />
+                            <Button fx:id="delete" mnemonicParsing="false" text="Delete" onAction="#handleDelAction"  />
                           </children>
                         </FlowPane>
                       </children>
@@ -96,14 +96,14 @@
               <children>
                 <BarChart fx:id="barChart" prefHeight="371.0" prefWidth="595.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                   <xAxis>
-                    <CategoryAxis fx:id="x" side="BOTTOM">
+                    <CategoryAxis side="BOTTOM" fx:id="x" >
                       <categories>
                         <FXCollections fx:factory="observableArrayList" />
                       </categories>
                     </CategoryAxis>
                   </xAxis>
                   <yAxis>
-                    <NumberAxis fx:id="y" side="LEFT" />
+                    <NumberAxis side="LEFT" fx:id="y" />
                   </yAxis>
                 </BarChart>
               </children>

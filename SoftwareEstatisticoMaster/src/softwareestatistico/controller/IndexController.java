@@ -148,8 +148,8 @@ public class IndexController implements Initializable {
     private void handleAddAction(ActionEvent event) throws IOException, SAXException {
        logger.info("handleAddAction");  
        try{ 
-           makedouble(textValor.getText());
-           if(textValor.equals("")){
+           String aux=makedouble(textValor.getText());
+           if(!aux.equals("")){
             ValorAmostra vlr=new ValorAmostra();
             
             vlr.setValor(Double.parseDouble(textValor.getText()));
@@ -216,14 +216,17 @@ public class IndexController implements Initializable {
             logger.error(e.getMessage());
         }
     }
-    public void makedouble(String verify){
+    public String makedouble(String verify){
+        String aux=verify;
         if(verify.contains(",")){
-            textValor.setText(textValor.getText().replace(",", "."));
+            aux=verify.replace(",", ".");
         }
         if(Double.isNaN(Double.parseDouble(verify))){
             Dialogs.showErrorDialog(new Stage(), "Permitido apenas números");
             textValor.clear();
+            aux="";
         }
+        return aux;
     }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
