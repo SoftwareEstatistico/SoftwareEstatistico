@@ -12,6 +12,7 @@ gerar/exportar gráficos com javafx
 * histograma
 * salvar xml somente quando gerar resultados
 * pegar resultados quando abrir arquivo
+* formatar saidas
  */
 package softwareestatistico.controller;
 
