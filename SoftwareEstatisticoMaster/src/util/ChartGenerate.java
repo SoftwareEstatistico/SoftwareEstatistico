@@ -5,6 +5,7 @@
 package util;
 
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 import model.Amostra;
@@ -29,8 +30,8 @@ public class ChartGenerate implements IChartGenerate{
     private static ChartGenerate instance;
     private Amostra amostra;
     private StringBuilder sb=new StringBuilder();
-    private  Set<FrequenciaAbsoluta1> s=new HashSet<FrequenciaAbsoluta1>();
-    private  Set<FrequenciaRelativa1> s2=new HashSet<FrequenciaRelativa1>();
+    private  Set<FrequenciaAbsoluta1> s=new LinkedHashSet<FrequenciaAbsoluta1>();
+    private  Set<FrequenciaRelativa1> s2=new LinkedHashSet<FrequenciaRelativa1>();
     private ChartGenerate() {
     }
 
@@ -46,11 +47,14 @@ public class ChartGenerate implements IChartGenerate{
     public String makeStringViewFr(){
         StringBuilder sb=new StringBuilder();
         sb.append("Frequência Relativa");
-        sb.append("/n");
+        sb.append("\n");
+        //sao objetos diferentes por isso o set não funciona para keys duplicadas
         for (FrequenciaRelativa1 fr1 : s2) {
-            sb.append("chave:"+fr1.getKey());
-            sb.append("/n");
-            sb.append("valor:"+fr1.getValue());
+                sb.append("chave:"+fr1.getKey());
+                sb.append("\n");
+                sb.append("valor:"+fr1.getValue());
+                sb.append("\n");
+            
         }
         return sb.toString();
     }
@@ -60,12 +64,14 @@ public class ChartGenerate implements IChartGenerate{
     public String makeStringViewFa(){
         StringBuilder sb=new StringBuilder();
         sb.append("Frequência Absoluta");
-        sb.append("/n");
+        sb.append("\n");
+        //sao objetos diferentes por isso o set não funciona para keys duplicadas
         for (FrequenciaAbsoluta1 fa1 : s) {
-            sb.append("chave:"+fa1.getKey());
-            sb.append("/n");
-            sb.append("valor:"+fa1.getValue());
-        }
+                sb.append("chave:"+fa1.getKey());
+                sb.append("\n");
+                sb.append("valor:"+fa1.getValue());
+                sb.append("\n");
+            }
         return sb.toString();
     }
     @Override
@@ -79,7 +85,6 @@ public class ChartGenerate implements IChartGenerate{
         faToset(amostra.getFa());
         sb.append(makeStringViewFa());
         sb.append("\n");
-        sb.append("Frequência Relativa:");
         frToset(amostra.getFr());
         sb.append(makeStringViewFr());
         sb.append("\n");
