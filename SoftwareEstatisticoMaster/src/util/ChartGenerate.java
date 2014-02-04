@@ -4,7 +4,12 @@
  */
 package util;
 
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 import model.Amostra;
+import model.FrequenciaAbsoluta1;
+import model.FrequenciaRelativa1;
 import threads.Curtose;
 import threads.DesvioPadrao;
 import threads.FrequenciaAbsoluta;
@@ -24,6 +29,8 @@ public class ChartGenerate implements IChartGenerate{
     private static ChartGenerate instance;
     private Amostra amostra;
     private StringBuilder sb=new StringBuilder();
+    private  Set<FrequenciaAbsoluta1> s=new HashSet<FrequenciaAbsoluta1>();
+    private  Set<FrequenciaRelativa1> s2=new HashSet<FrequenciaRelativa1>();
     private ChartGenerate() {
     }
 
@@ -33,7 +40,34 @@ public class ChartGenerate implements IChartGenerate{
                 instance=new ChartGenerate();
         return instance;
     }
-
+    public void frToset(List<FrequenciaRelativa1> fas){
+        s2.addAll(fas);
+    }
+    public String makeStringViewFr(){
+        StringBuilder sb=new StringBuilder();
+        sb.append("Frequência Relativa");
+        sb.append("/n");
+        for (FrequenciaRelativa1 fr1 : s2) {
+            sb.append("chave:"+fr1.getKey());
+            sb.append("/n");
+            sb.append("valor:"+fr1.getValue());
+        }
+        return sb.toString();
+    }
+    public void faToset(List<FrequenciaAbsoluta1> fas){
+        s.addAll(fas);
+    }
+    public String makeStringViewFa(){
+        StringBuilder sb=new StringBuilder();
+        sb.append("Frequência Absoluta");
+        sb.append("/n");
+        for (FrequenciaAbsoluta1 fa1 : s) {
+            sb.append("chave:"+fa1.getKey());
+            sb.append("/n");
+            sb.append("valor:"+fa1.getValue());
+        }
+        return sb.toString();
+    }
     @Override
     public void stringstatica(Amostra amostra) {
         FrequenciaAbsoluta fa=new FrequenciaAbsoluta(amostra);
@@ -42,14 +76,14 @@ public class ChartGenerate implements IChartGenerate{
         fr.run();
         sb.append("RESULTADO DA AMOSTRA:");
         sb.append("\n");
-        sb.append("Frequência Absoluta:");
-        sb.append(amostra.getFa());
+        faToset(amostra.getFa());
+        sb.append(makeStringViewFa());
         sb.append("\n");
         sb.append("Frequência Relativa:");
-        sb.append(amostra.getFr());
+        frToset(amostra.getFr());
+        sb.append(makeStringViewFr());
         sb.append("\n");
         this.amostra=amostra;
-        System.out.println("Entra"+amostra);
     }
 
     @Override
