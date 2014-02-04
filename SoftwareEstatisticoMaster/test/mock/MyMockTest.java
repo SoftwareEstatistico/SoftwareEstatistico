@@ -49,11 +49,9 @@ public class MyMockTest {
     
      @Test
      public void max() {
-          /* = Setup our mock object with the expected values */
         EasyMock.expect(calculoOmock.max(amostra)).andReturn(15.8);
         EasyMock.replay(calculoOmock);
 
-        /* = Now start testing our portfolio */
         Amostra amostra2 = new Amostra();
         mymock.setAmostra(amostra);
         DecimalFormat decimal = new DecimalFormat( "0.0" );
@@ -62,11 +60,9 @@ public class MyMockTest {
      }
      @Test
      public void min() {
-          /* = Setup our mock object with the expected values */
         EasyMock.expect(calculoOmock.min(amostra)).andReturn(11.6);
         EasyMock.replay(calculoOmock);
 
-        /* = Now start testing our portfolio */
         Amostra amostra2 = new Amostra();
         mymock.setAmostra(amostra);
         DecimalFormat decimal = new DecimalFormat( "0.0" );
@@ -75,11 +71,9 @@ public class MyMockTest {
      }
      @Test
      public void Amplitude() {
-          /* = Setup our mock object with the expected values */
         EasyMock.expect(calculoOmock.amplitude(amostra)).andReturn(4.3);
         EasyMock.replay(calculoOmock);
 
-        /* = Now start testing our portfolio */
         Amostra amostra2 = new Amostra();
         mymock.setAmostra(amostra);
         DecimalFormat decimal = new DecimalFormat( "0.0" );
@@ -88,11 +82,9 @@ public class MyMockTest {
      }
      @Test
      public void AmplitudeFalharUmMais() {
-          /* = Setup our mock object with the expected values */
         EasyMock.expect(calculoOmock.amplitude(amostra)).andReturn(4.3);
         EasyMock.replay(calculoOmock);
 
-        /* = Now start testing our portfolio */
         Amostra amostra2 = new Amostra();
         mymock.setAmostra(amostra);
         DecimalFormat decimal = new DecimalFormat( "0.0" );
@@ -101,11 +93,9 @@ public class MyMockTest {
      }
      @Test
      public void AmplitudeFalharUmMenos() {
-          /* = Setup our mock object with the expected values */
         EasyMock.expect(calculoOmock.amplitude(amostra)).andReturn(4.3);
         EasyMock.replay(calculoOmock);
 
-        /* = Now start testing our portfolio */
         Amostra amostra2 = new Amostra();
         mymock.setAmostra(amostra);
         DecimalFormat decimal = new DecimalFormat( "0.0" );
