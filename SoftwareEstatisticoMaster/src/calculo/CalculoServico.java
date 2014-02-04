@@ -12,7 +12,7 @@ import model.Amostra;
  */
 public class CalculoServico {
     private Calculo calculo;
-//aranha minhoca cobra pato foca galo arara vaca rato mula lebre anta
+    
     public CalculoServico(Calculo calculo) {
         this.calculo = calculo;
     }
