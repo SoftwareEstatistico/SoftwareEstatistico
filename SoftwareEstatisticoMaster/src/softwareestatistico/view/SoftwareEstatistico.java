@@ -17,7 +17,7 @@ public class SoftwareEstatistico extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("Index.fxml"));
         Scene scene = new Scene(root);
         stage.setTitle("Software Estatistico");
-        stage.setResizable(true);
+        stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
         

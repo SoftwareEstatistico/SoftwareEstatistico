@@ -26,6 +26,7 @@ public class ClieShellParser {
     @Command
     public String nova(){
         vlrs=new ArrayList<>();
+        amostra=new Amostra();
         return "nova amostra";
     } 
     
@@ -47,10 +48,10 @@ public class ClieShellParser {
         ChartGenerate.getInstance().stringsobliquidade(true);
         ChartGenerate.getInstance().stringsvariancia(true);
     }
-    
     @Command
     public String calculo(){
         try{
+            
             for(Double d:vlrs){
                 ValorAmostra v=new ValorAmostra();
                 v.setValor(d);
@@ -71,7 +72,7 @@ public class ClieShellParser {
         return clp.getOptions().getOption("h").getDescription();
     }
     public static void exec() throws IOException {
-             ShellFactory.createConsoleShell("clieShell>", "ClieShellParser", new ClieShellParser())
+             ShellFactory.createConsoleShell("clieShell", "ClieShellParser", new ClieShellParser())
             .commandLoop(); // and three.
     }
 }
