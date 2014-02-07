@@ -67,22 +67,26 @@ public class ClieShellParser {
     public String help(){
         StringBuilder sb=new StringBuilder();
         sb.append("Help: \n");
+        sb.append(clp.getOptions().getOption("help").getOpt()+":");
         sb.append(clp.getOptions().getOption("help").getDescription());
         sb.append("\n");
+        sb.append(clp.getOptions().getOption("add").getOpt()+":");
         sb.append(clp.getOptions().getOption("add").getDescription());
         sb.append("\n");
+        sb.append(clp.getOptions().getOption("calculo").getOpt()+":");
         sb.append(clp.getOptions().getOption("calculo").getDescription());
         sb.append("\n");
+        sb.append(clp.getOptions().getOption("nova").getOpt()+":");
         sb.append(clp.getOptions().getOption("nova").getDescription());
         sb.append("\n");
+        sb.append(clp.getOptions().getOption("sair").getOpt()+":");
         sb.append(clp.getOptions().getOption("sair").getDescription());
         sb.append("\n");
         return sb.toString();
     }
     @Command
-    public String sair(){
+    public void sair(){
         System.exit(0);
-        return "Tchau";
     }
     public static void exec() throws IOException {
              ShellFactory.createConsoleShell("clieShell", "ClieShellParser", new ClieShellParser())
