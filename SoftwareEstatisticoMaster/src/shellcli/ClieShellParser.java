@@ -32,8 +32,12 @@ public class ClieShellParser {
     
     @Command
     public String add(double v){
-       vlrs.add(v);
-       return clp.getOptions().getOption("add").getDescription();
+       try{ 
+            vlrs.add(v);
+            return clp.getOptions().getOption("add").getDescription();
+       }catch(Exception e){
+            return e.getMessage();
+       }
     }
 
     private void gerarString(){
@@ -51,7 +55,6 @@ public class ClieShellParser {
     @Command
     public String calculo(){
         try{
-            
             for(Double d:vlrs){
                 ValorAmostra v=new ValorAmostra();
                 v.setValor(d);
@@ -60,7 +63,7 @@ public class ClieShellParser {
             gerarString();
             return ChartGenerate.getInstance().getstrings();
         }catch(Exception e){
-            return e.toString();
+            return e.getMessage();
         }
     } 
     @Command
