@@ -36,7 +36,7 @@ public class ClieShellParser {
             vlrs.add(v);
             return clp.getOptions().getOption("add").getDescription();
        }catch(Exception e){
-            return e.getMessage();
+            return e.toString();
        }
     }
 
