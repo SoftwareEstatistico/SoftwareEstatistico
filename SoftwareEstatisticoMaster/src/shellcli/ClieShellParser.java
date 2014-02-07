@@ -27,13 +27,13 @@ public class ClieShellParser {
     public String nova(){
         vlrs=new ArrayList<>();
         amostra=new Amostra();
-        return "nova amostra";
+        return clp.getOptions().getOption("nova").getDescription();
     } 
     
     @Command
     public String add(double v){
        vlrs.add(v);
-       return "Adicionado";
+       return clp.getOptions().getOption("add").getDescription();
     }
 
     private void gerarString(){
@@ -65,14 +65,28 @@ public class ClieShellParser {
     } 
     @Command
     public String help(){
-        return clp.getOptions().getOption("h").getDescription();
+        StringBuilder sb=new StringBuilder();
+        sb.append("Help: \n");
+        sb.append(clp.getOptions().getOption("help").getDescription());
+        sb.append("\n");
+        sb.append(clp.getOptions().getOption("add").getDescription());
+        sb.append("\n");
+        sb.append(clp.getOptions().getOption("calculo").getDescription());
+        sb.append("\n");
+        sb.append(clp.getOptions().getOption("nova").getDescription());
+        sb.append("\n");
+        sb.append(clp.getOptions().getOption("sair").getDescription());
+        sb.append("\n");
+        return sb.toString();
     }
     @Command
     public String sair(){
-        return clp.getOptions().getOption("h").getDescription();
+        System.exit(0);
+        return "Tchau";
     }
     public static void exec() throws IOException {
              ShellFactory.createConsoleShell("clieShell", "ClieShellParser", new ClieShellParser())
             .commandLoop(); // and three.
     }
+    
 }

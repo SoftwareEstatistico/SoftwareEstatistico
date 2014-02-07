@@ -21,10 +21,11 @@ import org.apache.commons.cli.ParseException;
 public class CommandLineParameters {
     public Options getOptions(){
          Options options=new Options();
-         options.addOption("c", "calculo",false,"resultados de media, mediana, maximo, minimo, moda, desvio_padrao,variancia,curtose e obliquidade.");
-         options.addOption("h", "help",false,"digite h ou help para ajuda e c ou calculo para obter os resultados estátisticos");
-         options.addOption("a", "amostra",true,"definir valores amostra");
-         options.addOption("s", "sair",true,"digite sair");
+         options.addOption("calculo",false,"resultados de media, mediana, maximo, minimo, moda, desvio_padrao,variancia,curtose, frequências, variâncias e obliquidade.");
+         options.addOption("help",false,"instruções para uso de comandos");
+         options.addOption("nova",true,"criar uma nova amostra");
+         options.addOption("add",true,"adicionar á amostra");
+         options.addOption("sair",true,"finalizar o programa");
          return options;
     }
     public static void main(String[] args) throws ParseException {
