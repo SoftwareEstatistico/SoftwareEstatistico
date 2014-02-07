@@ -24,10 +24,11 @@ public class ClieShellParser {
     private CommandLineParameters clp=new CommandLineParameters();
     
     @Command
-    public String novaAmostra(){
+    public String nova(){
         vlrs=new ArrayList<>();
         return "nova amostra";
     } 
+    
     @Command
     public String add(double v){
        vlrs.add(v);
@@ -46,6 +47,7 @@ public class ClieShellParser {
         ChartGenerate.getInstance().stringsobliquidade(true);
         ChartGenerate.getInstance().stringsvariancia(true);
     }
+    
     @Command
     public String calculo(){
         try{
