@@ -34,6 +34,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Dialogs;
 import javafx.scene.control.ListView;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
@@ -44,6 +45,7 @@ import model.ValorAmostra;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.xml.sax.SAXException;
+import shellcli.ClieShellParser;
 import util.ChartGenerate;
 import util.Open;
 import util.OpenFile;
@@ -59,6 +61,12 @@ public class IndexController implements Initializable {
     private Button abrir;
     @FXML
     private Button salvar;
+    @FXML
+    private MenuItem Mabrir;
+    @FXML
+    private MenuItem Msalvar;
+    @FXML
+    private MenuItem Mopenshell;
     @FXML
     private Button delete;
     @FXML
@@ -218,6 +226,10 @@ public class IndexController implements Initializable {
         }catch(Exception e){
             logger.error(e.getMessage());
         }
+    }
+    @FXML
+    public void OpenShell(ActionEvent event) throws IOException{
+        ClieShellParser.exec();
     }
     public String makedouble(String verify){
         String aux=verify;

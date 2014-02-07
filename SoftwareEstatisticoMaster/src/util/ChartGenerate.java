@@ -21,6 +21,7 @@ import threads.Mediana;
 import threads.Min;
 import threads.Moda;
 import threads.Obliquidade;
+import threads.Variancia;
 
 /**
  *
@@ -165,6 +166,16 @@ public class ChartGenerate implements IChartGenerate{
             ob.run();
             sb.append("Obliquidade:");
             sb.append(amostra.getObliquidade());
+            sb.append("\n");
+         }
+    }
+    @Override
+    public void stringsvariancia(boolean mostrar) {
+         if(mostrar){
+            Variancia ob=new Variancia(amostra);
+            ob.run();
+            sb.append("Variancia:");
+            sb.append(amostra.getVariancia());
             sb.append("\n");
          }
     }

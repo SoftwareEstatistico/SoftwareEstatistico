@@ -55,9 +55,8 @@
                   <top>
                     <GridPane>
                       <children>
-                        <Button fx:id="abrir" mnemonicParsing="false" onAction="#handleAbrirAction" prefHeight="22.0" prefWidth="87.0" text="..." GridPane.columnIndex="1" GridPane.rowIndex="0" />
-                        <TextField fx:id="textFile" editable="false" prefWidth="466.0" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-                        <Button fx:id="salvar" mnemonicParsing="false" onAction="#handleSalvarAction" prefWidth="120.0" text="Salvar" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Button fx:id="abrir" mnemonicParsing="false" onAction="#handleAbrirAction" prefHeight="22.0" prefWidth="132.0" text="Abrir Arquivo" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                        <Button fx:id="salvar" mnemonicParsing="false" onAction="#handleSalvarAction" prefWidth="132.0" text="Salvar" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                         <FlowPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="1">
                           <children>
                             <Label text="Valor:" />
@@ -66,6 +65,21 @@
                             <Button fx:id="delete" mnemonicParsing="false" onAction="#handleDelAction" text="Delete" />
                           </children>
                         </FlowPane>
+                        <MenuBar GridPane.columnIndex="0" GridPane.rowIndex="0">
+                          <menus>
+                            <Menu mnemonicParsing="false" text="Arquivo">
+                              <items>
+                                <MenuItem fx:id="Mabrir" onAction="#handleAbrirAction"  mnemonicParsing="false" text="Abrir" />
+                                <MenuItem fx:id="Msalvar" onAction="#handleSalvarAction"  mnemonicParsing="false" text="Salvar" />
+                              </items>
+                            </Menu>
+                            <Menu mnemonicParsing="false" text="Opções">
+                              <items>
+                                <MenuItem fx:id="Mopenshell" onAction="#OpenShell"  mnemonicParsing="false" text="Open Shell" />
+                              </items>
+                            </Menu>
+                          </menus>
+                        </MenuBar>
                       </children>
                       <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="499.0" minWidth="10.0" prefWidth="463.0" />

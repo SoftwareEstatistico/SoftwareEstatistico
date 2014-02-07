@@ -20,5 +20,6 @@ public interface IChartGenerate {
     public void stringscurtose(boolean mostrar);
     public void stringsobliquidade(boolean mostrar);
     public void stringsdesviopadrao(boolean mostrar);
+    public void stringsvariancia(boolean mostrar);
     public String getstrings();
 }
